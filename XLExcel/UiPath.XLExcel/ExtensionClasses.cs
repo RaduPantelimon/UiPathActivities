@@ -19,56 +19,56 @@ namespace UiPath.XLExcel
     public static class ExtensionClasses
     {
 
-        public static void AddColumns(this DataTable dt, int count)
+        public static void AddColumns(this DataTable DT, int Count)
         {
-            for (int i = 0; i < count; i++)
-                dt.Columns.Add();
+            for (int i = 0; i < Count; i++)
+                DT.Columns.Add();
         }
-        public static void AddColumns(this DataTable dt, object[] columns)
+        public static void AddColumns(this DataTable DT, object[] Columns)
         {
-            foreach (object header in columns)
+            foreach (object header in Columns)
             {
-                dt.Columns.Add(header != null ? header.ToString() : "");
+                DT.Columns.Add(header != null ? header.ToString() : "");
             }
         }
 
-        public static void AddRows(this DataTable dt, List<object[]> rows)
+        public static void AddRows(this DataTable DT, List<object[]> Rows)
         {
-            foreach (object[] row in rows)
+            foreach (object[] row in Rows)
             {
-                dt.Rows.Add(row);
+                DT.Rows.Add(row);
             }
         }
-        public static void AddRows(this DataTable dt, List<List<object>> rows)
+        public static void AddRows(this DataTable DT, List<List<object>> Rows)
         {
-            foreach (List<object> row in rows)
+            foreach (List<object> row in Rows)
             {
-                dt.Rows.Add(row.ToArray());
+                DT.Rows.Add(row.ToArray());
             }
         }
-        public static void AddRows(this DataTable dt, LinkedList<object[]> rows, int maxColNo)
+        public static void AddRows(this DataTable DT, LinkedList<object[]> Rows, int MaxColumnNumber)
         {
-            while(rows.Count> 0)
+            while(Rows.Count> 0)
             {
-                object[] currentRow = rows.First.Value;
-                if (maxColNo > currentRow.Length)
+                object[] currentRow = Rows.First.Value;
+                if (MaxColumnNumber > currentRow.Length)
                 {
                     List<object> currentRowAsList = (currentRow.ToList());
                     currentRowAsList.AddRange(
-                        Enumerable.Repeat<object>(null, maxColNo - currentRow.Length));
+                        Enumerable.Repeat<object>(null, MaxColumnNumber - currentRow.Length));
 
                     currentRow = currentRowAsList.ToArray();
                 }
                 
-                dt.Rows.Add(currentRow);
-                rows.RemoveFirst();
+                DT.Rows.Add(currentRow);
+                Rows.RemoveFirst();
             }
         }
 
-        public static int GetCellColumn(this Cell cell)
+        public static int GetCellColumn(this Cell Cell)
         {
             Regex rgx = new Regex("[A-Z]+");
-            MatchCollection colMatches = rgx.Matches(cell.CellReference);
+            MatchCollection colMatches = rgx.Matches(Cell.CellReference);
             int stCol;
 
             //coordinates must begin with a valid [A-Z expression]
@@ -83,38 +83,38 @@ namespace UiPath.XLExcel
             else
             {
 
-                throw new Exception("The range received is not valid. Failed to parse expression: " + cell.CellReference);
+                throw new Exception("The range received is not valid. Failed to parse expression: " + Cell.CellReference);
             }
 
         }
 
-        public static string Dump(this DataTable table)
+        public static string Dump(this DataTable Table)
         {
             string data = string.Empty;
             StringBuilder sb = new StringBuilder();
 
-            if (null != table && null != table.Rows)
+            if (null != Table && null != Table.Rows)
             {
-                for (int i=0;i<table.Rows.Count;i++)
+                for (int i=0;i<Table.Rows.Count;i++)
                 {
-                    DataRow dataRow = table.Rows[i];
+                    DataRow dataRow = Table.Rows[i];
                     /*foreach (var item in dataRow.ItemArray)
                     {
                         sb.Append(item);
                         sb.Append(',');
                     }*/
                     sb.Append(String.Join(",", dataRow.ItemArray));
-                    if(i+1 <table.Rows.Count)sb.AppendLine();
+                    if(i+1 <Table.Rows.Count)sb.AppendLine();
                 }
                 data = sb.ToString();
             }
             return data;
         }
 
-        public static string DumpColumns(this DataTable table)
+        public static string DumpColumns(this DataTable Table)
         {
           
-            string Columns = String.Join(";", table.Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToArray());
+            string Columns = String.Join(";", Table.Columns.Cast<DataColumn>().Select(x => x.ColumnName).ToArray());
             return Columns;
         }
     }

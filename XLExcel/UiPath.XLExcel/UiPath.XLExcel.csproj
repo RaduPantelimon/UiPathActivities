@@ -64,7 +64,6 @@
     <Compile Include="ExtensionClasses.cs" />
     <Compile Include="UtilsCOM.cs" />
     <Compile Include="UtilsSAX.cs" />
-    <Compile Include="UtilsDOM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

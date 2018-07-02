@@ -35,7 +35,7 @@ namespace UiPath.XLExcel.Activities
 
 
             //retrieve the parameters from the Context
-            string filePath = customContext.path;
+            string filePath = customContext.Path;
             string sheetName = SheetName.Get(context);
 
             string rowNum = "";

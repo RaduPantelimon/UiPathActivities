@@ -67,7 +67,7 @@ namespace UiPath.XLExcel.Activities
                         new AssertValidation
                         {
                             Assertion = new InArgument<bool>(result),
-                            Message = new InArgument<string> ("CreateState has to be inside a SharePointApplicationScope activity"),
+                            Message = new InArgument<string> ("CreateState has to be inside a XL Excel Application Scope activity"),
                         }
                     }
                     }

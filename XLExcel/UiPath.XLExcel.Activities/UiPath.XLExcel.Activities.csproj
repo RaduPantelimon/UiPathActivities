@@ -64,7 +64,6 @@
     <Compile Include="GetNumberOfRows.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadRange.cs" />
-    <Compile Include="ScopeSnippet.cs" />
     <Compile Include="XLExcelApplicationScope.cs" />
   </ItemGroup>
   <ItemGroup>

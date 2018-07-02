@@ -35,12 +35,6 @@ namespace TestExcelExtensions
             //TestReadRangeBasicDOM();
         }
 
-        static void TestReadRangeBasicDOM()
-        {
-            DataTable dt = Utils.ReadDOMRange("C:\\Users\\bucur\\Downloads\\AMS_SC_Inputs_201801.xlsx", "US");
-            Console.WriteLine(DumpDataTable(dt));
-
-        }
         static void TestFileConversion()
         {
 
@@ -157,8 +151,6 @@ namespace TestExcelExtensions
                 WorksheetPart worksheetPart = workbookPart.GetPartById(relId) as WorksheetPart;
                 OpenXmlReader reader = OpenXmlReader.Create(worksheetPart);
 
-                String rowNum = "";
-
                 while (reader.Read())
                 {
                     if (reader.ElementType == typeof(Row))
@@ -167,9 +159,7 @@ namespace TestExcelExtensions
 
                         do
                         {
-                            try
-                            {
-
+                           
 
                                 if (reader.ElementType == typeof(Cell))
                                 {
@@ -191,11 +181,7 @@ namespace TestExcelExtensions
 
                                     Console.Out.Write("{0}: {1} ", c.CellReference, cellValue);
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                //Console.Write("Exception: " + ex.ToString());
-                            }
+
                         } while (reader.ReadNextSibling());
                         Console.Out.WriteLine();
                     }

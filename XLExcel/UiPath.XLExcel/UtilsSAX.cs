@@ -38,39 +38,34 @@ namespace UiPath.XLExcel
         }
 
         public static DataTable ReadSAXRange(
-          ExcelRange range,
-          string filePath,
-          string sheetName,
-          bool AddHeaders)
+          ExcelRange Range,
+          string FilePath,
+          string SheetName,
+          bool addHeaders)
          {
             DataTable result= new DataTable();
 
             LinkedList<object[]> rows = new LinkedList<object[]>();
-            int previousRow = range.StartRow - 1, maxColNo;
+            int previousRow = Range.StartRow - 1, maxColNo;
 
             //if we know exactly the range we will read (we know the start and end columns) 
             //we do not have to save the rows in the linked list and we can add them directly to the output
-            bool limitedRange = (range.EndRow != -1 && range.EndColumn != -1) ? true : false;
-
+            bool isLimitedRange = (Range.EndRow != -1 && Range.EndColumn != -1) ? true : false;
 
             //open file
-            using (SpreadsheetDocument myDoc = SpreadsheetDocument.Open(filePath, true))
+            using (SpreadsheetDocument myDoc = SpreadsheetDocument.Open(FilePath, true))
             {
-
                 WorkbookPart workbookPart = myDoc.WorkbookPart;
                 //determine ID of the Sheet
-                string relId = workbookPart.Workbook.Descendants<Sheet>().First(s => sheetName.Equals(s.Name)).Id;
-
+                string relId = workbookPart.Workbook.Descendants<Sheet>().First(s => SheetName.Equals(s.Name)).Id;
                 //open reader for Sheet
                 WorksheetPart worksheetPart = workbookPart.GetPartById(relId) as WorksheetPart;
                 OpenXmlReader reader = OpenXmlReader.Create(worksheetPart);
-
                 //get shared string array
                 SharedStringItem[] sharedStringItemsArray = GetSharedStringItemsArray(workbookPart);
 
-
                 //keep track of current expected row
-                int prevRow = range.StartRow - 1;
+                int prevRow = Range.StartRow - 1;
 
                 while (reader.Read())
                 {
@@ -78,241 +73,198 @@ namespace UiPath.XLExcel
                     if (reader.ElementType == typeof(Row))
                     {
 
-                        //current row number
-                        //get XML attr
+                        //get current row number
                         OpenXmlAttribute attr = reader.Attributes.FirstOrDefault(a => a.LocalName == "r");
 
                         if (attr != null && attr.Value != null)
                         {
                             string rowNum = attr.Value;
-
                             int currentRow = int.Parse(rowNum);
 
                             ///make sure row index is correct
                             if (currentRow < 1 || currentRow > 1048576) throw new Exception("Cannot process rows whose index number is below 1 or above 1048576");
 
                             //add any missing rows to the table
-                            FillMissingRows(prevRow, currentRow, range, rows, limitedRange, result, AddHeaders);
+                            FillMissingRows(prevRow, currentRow, Range, rows, isLimitedRange, result, addHeaders);
 
-
-
-                            if (currentRow > range.EndRow && range.EndRow != -1)
+                            if (currentRow > Range.EndRow && Range.EndRow != -1)
                             {
                                 //we're out of the current range, we simply break
                                 break;
                             }
-                            else if (currentRow >= range.StartRow && (currentRow <= range.EndRow || range.EndRow == -1))
+                            else if (currentRow >= Range.StartRow && (currentRow <= Range.EndRow || Range.EndRow == -1))
                             {
                                 //add the current row to the table
-                                List<object> row = GetSAXRowArray(reader, workbookPart, range, sharedStringItemsArray);
-                                if (!limitedRange)
-                                {
-                                    rows.AddLast(row.ToArray());
-                                }
-                                else
-                                {
-                                    AddFullRowToDT(row.ToArray(), AddHeaders, result);
-                                }
-
-
-                                //Console.WriteLine(String.Join(";", (row.ToList()).Select(x => x != null ? x.ToString() : "") ));
+                                List<object> row = GetSAXRowArray(reader, workbookPart, Range, sharedStringItemsArray);
+                                //if we know the exact range; we add the rows directly to the DataTable; otherwise we store them
+                                if (!isLimitedRange) rows.AddLast(row.ToArray());
+                                else   AddFullRowToDT(row.ToArray(), addHeaders, result);
                                 prevRow = currentRow;
                             }
-
-
                         }
                     }
                 }
 
                 //add any missing rows to the table
-                FillMissingRows(prevRow, range.EndRow + 1, range, rows, limitedRange, result, AddHeaders);
-
+                FillMissingRows(prevRow, Range.EndRow + 1, Range, rows, isLimitedRange, result, addHeaders);
                 
-
-                if (!limitedRange)
+                if (!isLimitedRange)
                 {
+                    //if we did not have the exact range, we add the rows to the DataTable when we reach the end of the document
                     maxColNo = rows.Max(x => x.Length);
-                    Utils.AddColumnsToDT(range, AddHeaders, result, rows, maxColNo);
+                    Utils.AddColumnsToDT(Range, addHeaders, result, rows, maxColNo);
                     //POPULATING THE RESULT
                     result.AddRows(rows, maxColNo);
                 }
             }
-
             return result;
-            
          }
 
 
-        private static void AddFullRowToDT(object[] row, bool AddHeaders, DataTable dt)
+        private static void AddFullRowToDT(object[] Row, bool addHeaders, DataTable DT)
         {
             //if we are supposed to add headers but no columns added yet
-            if (AddHeaders && dt.Columns.Count == 0)
+            if (addHeaders && DT.Columns.Count == 0)
             {
-                dt.AddColumns(row);
+                DT.AddColumns(Row);
                 return;
-            } else if (dt.Columns.Count == 0)
+            } else if (DT.Columns.Count == 0)
             {
-                dt.AddColumns(row.Length);
+                DT.AddColumns(Row.Length);
             }
 
             //add the row as normal
-            dt.Rows.Add(row);
+            DT.Rows.Add(Row);
         }
 
         //adding the columns to the table
-        private static void AddColumnsToDT(ExcelRange range, bool AddHeaders, DataTable result, LinkedList<object[]> rows, int maxColNo)
+        private static void AddColumnsToDT(ExcelRange Range, bool addHeaders, DataTable Result, LinkedList<object[]> Rows, int MaxColNo)
         {
             //adding column to the table
-            if (AddHeaders)
+            if (addHeaders)
             {
-                object[] headers = rows.First();
-
-                result.AddColumns(headers);
+                //get the header row
+                object[] headers = Rows.First();
+                Result.AddColumns(headers);
 
                 //add more columns in case the header is smaller than the maximum sized row
-                result.AddColumns(maxColNo - headers.Length);
-                rows.RemoveFirst();
+                Result.AddColumns(MaxColNo - headers.Length);
+                Rows.RemoveFirst();
             }
             else
             {
 
                 //simply adding the correct number of empty column rows
-                if (range.EndRow == -1)
+                if (Range.EndRow == -1)
                 {
-                    result.AddColumns(maxColNo);
+                    Result.AddColumns(MaxColNo);
                 }
                 else
                 {
-                    result.AddColumns(range.ColumnCount);
+                    Result.AddColumns(Range.ColumnCount);
                 }
             }
         }
 
-        private static void FillMissingRows(int prevRow, int currentRow, ExcelRange range, LinkedList<object[]> rows, bool limitedRange =false, DataTable dt = null, bool AddHeaders = false)
+        private static void FillMissingRows(int PreviousRow, int CurrentRow, ExcelRange Range, LinkedList<object[]> Rows, bool isLimitedRange =false, DataTable DT = null, bool addHeaders = false)
         {
             //add any missing rows to the table
-            while (prevRow < currentRow - 1)
+            while (PreviousRow < CurrentRow - 1)
             {
-                prevRow++;
-                if (limitedRange)
+                PreviousRow++;
+                if (isLimitedRange)
                 {
-                    AddFullRowToDT(Enumerable.Repeat<object>(null,range.ColumnCount).ToArray(), AddHeaders, dt);
+                    AddFullRowToDT(Enumerable.Repeat<object>(null, Range.ColumnCount).ToArray(), addHeaders, DT);
                 }
                 else
                 {
-                    rows.AddLast(Enumerable.Repeat<object>(null, (range.EndColumn != -1 ? range.ColumnCount : 1)).ToArray());
+                    Rows.AddLast(Enumerable.Repeat<object>(null, (Range.EndColumn != -1 ? Range.ColumnCount : 1)).ToArray());
                 }
                 
             }
         }
 
-
-        public static List<object> GetSAXRowArray(OpenXmlReader reader, WorkbookPart workbookPart, ExcelRange range, SharedStringItem[] ssArray)
+        //gets the cells on a row as a List of objects
+        private static List<object> GetSAXRowArray(OpenXmlReader Reader, WorkbookPart WorkbookPart, ExcelRange Range, SharedStringItem[] SharedStringArray)
         {
             List<object> results = new List<object>();
-            reader.ReadFirstChild();
+            Reader.ReadFirstChild();
 
-
-            int previousCellNo = range.StartColumn - 1;
+            int previousCellNo = Range.StartColumn - 1;
             do
             {
-                try
+                if (Reader.ElementType == typeof(Cell))
                 {
-                    if (reader.ElementType == typeof(Cell))
+                    Cell c = (Cell)Reader.LoadCurrentElement();
+
+                    //get current column
+                    int currentCol = c.GetCellColumn();
+                    if (currentCol> Range.EndColumn && Range.EndColumn != -1)
                     {
-
-                        Cell c = (Cell)reader.LoadCurrentElement();
-
-                        //get current column
-                        int currentCol = c.GetCellColumn();
-                        if (currentCol> range.EndColumn && range.EndColumn != -1)
-                        {
-                            //we're out of the current range, we simply break
-                            break;
-                        }
-                        else if (currentCol >= range.StartColumn && ( currentCol <= range.EndColumn || range.EndColumn == -1))
-                        {
-
-                            //fill in gaps
-                            while (previousCellNo < currentCol-1)
-                            {
-                                results.Add(null);
-                                previousCellNo++;
-                            }
-
-                            //get the cell value
-                            string cellValue;
-                            if (c.DataType != null && c.DataType == CellValues.SharedString && ssArray!= null)
-                            {
-                                SharedStringItem ssi = ssArray[int.Parse(c.CellValue.InnerText)];
-
-                                cellValue = ssi.Text.Text;
-                            }
-                            else if (c.CellValue != null)
-                            {
-                                cellValue = c.CellValue.InnerText;
-                            }
-                            else
-                            {
-                                cellValue = null;
-                            }
-
-
-                            //check if the value can be parsed to remove extra decimals
-                            double parsedValue;
-                            if(Double.TryParse(cellValue, out parsedValue))
-                            {
-                                cellValue = parsedValue.ToString();
-                            }
-
-                            //add received cell Value
-                            results.Add(cellValue);
-                            previousCellNo = currentCol;
-
-                        }
-
+                        //we're out of the current range, we simply break
+                        break;
+                    }
+                    else if (currentCol >= Range.StartColumn && ( currentCol <= Range.EndColumn || Range.EndColumn == -1))
+                    {
+                        GetCellValue(SharedStringArray, results, previousCellNo, c, currentCol);
+                        previousCellNo = currentCol;
                     }
                 }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-
-
-
-              
-                
-
-
-            } while (reader.ReadNextSibling());
+            } while (Reader.ReadNextSibling());
             
             //fill in the last gaps
-            if (range.EndRow != -1)
-            {
-                while (previousCellNo < range.EndColumn)
-                {
-                    results.Add(null);
-                    previousCellNo++;
-                }
-            }
-
+            if (Range.EndRow != -1) FillCellGaps(ref previousCellNo, Range.EndColumn, results);
             //return resulted Rows
             return results;
         }
 
-        
+        private static void GetCellValue(SharedStringItem[] SharedStringArray, List<object> Results, int PreviousCellNumber, Cell Cell, int CurrentCol)
+        {
+
+            //fill any gaps between the previous cell and the current one
+            FillCellGaps(ref PreviousCellNumber, CurrentCol - 1, Results);
+
+            //get the cell value
+            string cellValue;
+            if (Cell.DataType != null && Cell.DataType == CellValues.SharedString && SharedStringArray != null)
+            {
+                SharedStringItem ssi = SharedStringArray[int.Parse(Cell.CellValue.InnerText)];
+                cellValue = ssi.Text.Text;
+            }
+            else if (Cell.CellValue != null) cellValue = Cell.CellValue.InnerText;
+            else cellValue = null;
+
+            //check if the value can be parsed to remove extra decimals
+            double parsedValue;
+            if (Double.TryParse(cellValue, out parsedValue))
+            {
+                cellValue = parsedValue.ToString();
+            }
+
+            //add received cell Value
+            Results.Add(cellValue);
+        }
+
+        private static void FillCellGaps(ref int PreviousCellNo, int CurrentCol, List<object> Results)
+        {
+            //fill in gaps
+            while (PreviousCellNo < CurrentCol)
+            {
+                Results.Add(null);
+                PreviousCellNo++;
+            }
+        }
        
 
-        public static SharedStringItem[] GetSharedStringItemsArray( WorkbookPart workbookPart)
+        private static SharedStringItem[] GetSharedStringItemsArray( WorkbookPart WorkbookPart)
         {
             SharedStringItem[] sharedStringItemsArray;
 
             try
             {
-                sharedStringItemsArray = workbookPart.SharedStringTablePart.SharedStringTable.Elements<SharedStringItem>().ToArray<SharedStringItem>();
-
+                sharedStringItemsArray = WorkbookPart.SharedStringTablePart.SharedStringTable.Elements<SharedStringItem>().ToArray<SharedStringItem>();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 sharedStringItemsArray = null;
             }

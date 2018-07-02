@@ -10,7 +10,16 @@
     <OutputVerification>AMS_SC_Inputs_201801.txt</OutputVerification>
     <ExpectExceptions>False</ExpectExceptions>
   </Row> -->
-
+  
+  <Row>
+    <SheetName>Foaie1</SheetName>
+    <Range>C10</Range>
+    <FilePath>headerTest.xlsx</FilePath>
+    <AddHeaders>True</AddHeaders>
+    <OutputVerification>headerTest.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>
+  
   <Row>
     <SheetName>Sheet1</SheetName>
     <Range>B3:I10</Range>

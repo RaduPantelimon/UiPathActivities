@@ -55,7 +55,7 @@ namespace UiPath.XLExcel.Activities
 
             XLExcelContextInfo customExcelCtx = new XLExcelContextInfo()
             {
-                path = filePath,
+                Path = filePath,
                
             };
 

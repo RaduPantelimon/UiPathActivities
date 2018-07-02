@@ -22,9 +22,6 @@ namespace UiPath.XLExcel.Activities.Design
     // Interaction logic for XLExcelApplicationScopeDesigner.xaml
     public partial class XLExcelApplicationScopeDesigner
     {
-        ModelProperty condition;
-        ModelItem root;
-       
 
         public XLExcelApplicationScopeDesigner()
         {

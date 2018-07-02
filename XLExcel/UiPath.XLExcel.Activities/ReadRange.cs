@@ -17,7 +17,6 @@ using System.Windows;
 namespace UiPath.XLExcel.Activities
 {
 
-    //[Designer(typeof(ReadRangeDesigner))]
     public class ReadRange: ExcelSheetExtensionCodeActivity
     {
 
@@ -42,7 +41,7 @@ namespace UiPath.XLExcel.Activities
             XLExcelContextInfo customContext = Utils.GetXLExcelContextInfo(context);
 
             //retrieve the parameters from the Context
-            string filePath = customContext.path;
+            string filePath = customContext.Path;
 
             //retrieve the parameters from the Context
             string range = Range.Get(context);

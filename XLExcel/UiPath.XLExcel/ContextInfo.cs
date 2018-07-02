@@ -8,15 +8,15 @@ namespace UiPath.XLExcel
 {
     public class XLExcelContextInfo
     {
-        public string path;
-        public string sheetName;
+        public string Path;
+        public string SheetName;
 
         public static string XLExcelContextInfoTag { get { return "XLExcelContextInfoInfoTag"; } }
 
         public void WriteProperties()
         {
-            Console.WriteLine("path: " + path);
-            Console.WriteLine("sheetName: " + sheetName);
+            Console.WriteLine("path: " + Path);
+            Console.WriteLine("sheetName: " + SheetName);
         }
 
 
