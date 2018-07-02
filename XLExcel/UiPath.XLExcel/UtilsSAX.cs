@@ -20,7 +20,7 @@ namespace UiPath.XLExcel
 {
     public static partial class Utils
     {
-        
+
 
         public static XLExcelContextInfo GetXLExcelContextInfo(NativeActivityContext context)
         {
@@ -42,8 +42,8 @@ namespace UiPath.XLExcel
           string FilePath,
           string SheetName,
           bool addHeaders)
-         {
-            DataTable result= new DataTable();
+        {
+            DataTable result = new DataTable();
 
             LinkedList<object[]> rows = new LinkedList<object[]>();
             int previousRow = Range.StartRow - 1, maxColNo;
@@ -98,7 +98,7 @@ namespace UiPath.XLExcel
                                 List<object> row = GetSAXRowArray(reader, workbookPart, Range, sharedStringItemsArray);
                                 //if we know the exact range; we add the rows directly to the DataTable; otherwise we store them
                                 if (!isLimitedRange) rows.AddLast(row.ToArray());
-                                else   AddFullRowToDT(row.ToArray(), addHeaders, result);
+                                else AddFullRowToDT(row.ToArray(), addHeaders, result);
                                 prevRow = currentRow;
                             }
                         }
@@ -107,7 +107,7 @@ namespace UiPath.XLExcel
 
                 //add any missing rows to the table
                 FillMissingRows(prevRow, Range.EndRow + 1, Range, rows, isLimitedRange, result, addHeaders);
-                
+
                 if (!isLimitedRange)
                 {
                     //if we did not have the exact range, we add the rows to the DataTable when we reach the end of the document
@@ -118,7 +118,7 @@ namespace UiPath.XLExcel
                 }
             }
             return result;
-         }
+        }
 
 
         private static void AddFullRowToDT(object[] Row, bool addHeaders, DataTable DT)
@@ -128,7 +128,8 @@ namespace UiPath.XLExcel
             {
                 DT.AddColumns(Row);
                 return;
-            } else if (DT.Columns.Count == 0)
+            }
+            else if (DT.Columns.Count == 0)
             {
                 DT.AddColumns(Row.Length);
             }
@@ -166,7 +167,7 @@ namespace UiPath.XLExcel
             }
         }
 
-        private static void FillMissingRows(int PreviousRow, int CurrentRow, ExcelRange Range, LinkedList<object[]> Rows, bool isLimitedRange =false, DataTable DT = null, bool addHeaders = false)
+        private static void FillMissingRows(int PreviousRow, int CurrentRow, ExcelRange Range, LinkedList<object[]> Rows, bool isLimitedRange = false, DataTable DT = null, bool addHeaders = false)
         {
             //add any missing rows to the table
             while (PreviousRow < CurrentRow - 1)
@@ -180,7 +181,7 @@ namespace UiPath.XLExcel
                 {
                     Rows.AddLast(Enumerable.Repeat<object>(null, (Range.EndColumn != -1 ? Range.ColumnCount : 1)).ToArray());
                 }
-                
+
             }
         }
 
@@ -199,19 +200,19 @@ namespace UiPath.XLExcel
 
                     //get current column
                     int currentCol = c.GetCellColumn();
-                    if (currentCol> Range.EndColumn && Range.EndColumn != -1)
+                    if (currentCol > Range.EndColumn && Range.EndColumn != -1)
                     {
                         //we're out of the current range, we simply break
                         break;
                     }
-                    else if (currentCol >= Range.StartColumn && ( currentCol <= Range.EndColumn || Range.EndColumn == -1))
+                    else if (currentCol >= Range.StartColumn && (currentCol <= Range.EndColumn || Range.EndColumn == -1))
                     {
                         GetCellValue(SharedStringArray, results, previousCellNo, c, currentCol);
                         previousCellNo = currentCol;
                     }
                 }
             } while (Reader.ReadNextSibling());
-            
+
             //fill in the last gaps
             if (Range.EndRow != -1) FillCellGaps(ref previousCellNo, Range.EndColumn, results);
             //return resulted Rows
@@ -254,9 +255,9 @@ namespace UiPath.XLExcel
                 PreviousCellNo++;
             }
         }
-       
 
-        private static SharedStringItem[] GetSharedStringItemsArray( WorkbookPart WorkbookPart)
+
+        private static SharedStringItem[] GetSharedStringItemsArray(WorkbookPart WorkbookPart)
         {
             SharedStringItem[] sharedStringItemsArray;
 
@@ -274,8 +275,8 @@ namespace UiPath.XLExcel
 
     }
 
-  
 
 
-    
+
+
 }

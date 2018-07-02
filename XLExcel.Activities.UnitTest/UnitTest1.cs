@@ -11,6 +11,7 @@ using UiPath.XLExcel.Activities;
 using UiPath.XLExcel;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace XLExcel.Activities.UnitTest
 {
@@ -63,6 +64,7 @@ namespace XLExcel.Activities.UnitTest
                     //get validation text
                     string validationFilePath = string.Format("{0}\\{1}\\{2}", directory, "FilesUsedForTesting\\ExpectedResultsFile", OutputVerificationFilePath);
                     string validationValue = File.ReadAllText(validationFilePath);
+
                     Assert.AreEqual(validationValue, dtReceived);
                 }
                 catch (Exception ex)
