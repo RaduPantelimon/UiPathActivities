@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rows>
+
+
+ <!-- <Row>
+    <SheetName>US</SheetName>
+    <Range></Range>
+    <FilePath>AMS_SC_Inputs_201801.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>AMS_SC_Inputs_201801.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row> -->
+
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range>B3:I10</Range>
+    <FilePath>LALALA.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>LALALA.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>
+  
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range>A1:N4500</Range>
+    <FilePath>HW_Feeder_2018_04.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>HW_Feeder_2018_04.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>
+    
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range></Range>
+    <FilePath>VIMReport_180226_083505.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>VIMReport_180226_083505.txt</OutputVerification>
+    <ExpectExceptions>True</ExpectExceptions>
+  </Row>
+  
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range></Range>
+    <FilePath>valueFormats.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>valueFormats.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>  
+  
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range>A2:BB23</Range>
+    <FilePath>TestRange1.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>TestRange1.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>
+  
+  <Row>
+    <SheetName>Sheet1</SheetName>
+    <Range>A2:BB8</Range>
+    <FilePath>TestRange.xlsx</FilePath>
+    <AddHeaders>False</AddHeaders>
+    <OutputVerification>TestRange.txt</OutputVerification>
+    <ExpectExceptions>False</ExpectExceptions>
+  </Row>
+
+  
+
+</Rows>

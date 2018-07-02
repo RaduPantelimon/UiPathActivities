@@ -1,0 +1,94 @@
+﻿<sap:ActivityDesigner x:Class="UiPath.XLExcel.Activities.Design.ConvertXLSToXLSXDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation">
+    <sap:ActivityDesigner.Resources>
+        <ResourceDictionary>
+            <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </sap:ActivityDesigner.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <sapv:ExpressionTextBox 
+                    Name="OldFilePath"
+                    Expression="{Binding Path=ModelItem.OldFilePath, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
+                    ExpressionType="s:String"
+                    HintText="Path of file to convert"
+                    OwnerActivity="{Binding Path=ModelItem}"
+                    Margin="2"
+                    Width="360"    
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    MaxLines="1" />
+            <Button DockPanel.Dock="Right" 
+                        Padding="6,0,6,0" 
+                        Width="25"
+                        Click="Button_Click_SelectFile"  
+                        Grid.Row="0"
+                        Grid.Column="1">...</Button>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <sapv:ExpressionTextBox 
+                        Name="DirectoryToSave"
+                        Expression="{Binding Path=ModelItem.DirectoryToSave, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
+                        ExpressionType="s:String"
+                        HintText="Folder name"
+                        OwnerActivity="{Binding Path=ModelItem}"
+                        Margin="2"
+                        Width="200"    
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        MaxLines="1" />
+            <Button DockPanel.Dock="Right" 
+                        Padding="6,0,6,0" 
+                        Width="25"
+                        Click="Button_Click_SelectFolder"  
+                        Grid.Row="0"
+                        Grid.Column="1">...</Button>
+            <sapv:ExpressionTextBox 
+                        Name="NewFileName"
+                        Expression="{Binding Path=ModelItem.NewFileName, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
+                        ExpressionType="s:String"
+                        HintText="XLSX File Name"
+                        OwnerActivity="{Binding Path=ModelItem}"
+                        Margin="2"
+                        Width="150"    
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        MaxLines="1" />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text=".xlsx" 
+                       Grid.Row ="0" Grid.Column="3" Height="16" Margin="2,5" Width="25"/>
+
+        </Grid>
+
+    </Grid>
+</sap:ActivityDesigner>

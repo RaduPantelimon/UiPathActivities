@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$title$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <!--<projectUrl>https://activities.uipath.com/v1.0/docs/</projectUrl>-->
+    <iconUrl>http://www.uipath.com/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <!--<files>
+      <file src="bin\Debug\**\*.dll" target="lib" />
+    </files>-->
+  </metadata>
+</package>
