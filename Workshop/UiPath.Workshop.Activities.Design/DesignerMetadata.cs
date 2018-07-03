@@ -1,6 +1,6 @@
 ﻿using System.Activities.Presentation.Metadata;
 
-namespace UiPath.Workshop.Activities.Design
+namespace UiPathTeam.Workshop.Activities.Design
 {
     class DesignerMetadata : IRegisterMetadata
     {

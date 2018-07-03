@@ -14,7 +14,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using System.Windows;
 
 
-namespace UiPath.XLExcel.Activities
+namespace UiPathTeam.XLExcel.Activities
 {
 
     public class ReadRange: ExcelSheetExtensionCodeActivity

@@ -1,4 +1,4 @@
-﻿namespace UiPath.FTP
+﻿namespace UiPathTeam.FTP
 {
     public enum FtpObjectType
     {

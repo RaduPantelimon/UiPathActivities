@@ -1,9 +1,9 @@
-﻿<sap:ActivityDesigner x:Class="UiPath.FTP.Activities.Design.WithFtpSessionDesigner"
+﻿<sap:ActivityDesigner x:Class="UiPathTeam.FTP.Activities.Design.WithFtpSessionDesigner"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
              xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
-             xmlns:uip="clr-namespace:UiPath.Activities.Presentation"
+             xmlns:uip="clr-namespace:UiPathTeam.Activities.Presentation"
              xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
              Collapsible="True">
     <sap:ActivityDesigner.Resources>

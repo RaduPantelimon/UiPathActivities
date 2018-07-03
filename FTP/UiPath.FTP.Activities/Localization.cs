@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using UiPath.FTP.Activities.Properties;
+using UiPathTeam.FTP.Activities.Properties;
 
-namespace UiPath.FTP.Activities
+namespace UiPathTeam.FTP.Activities
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class LocalizedCategoryAttribute : CategoryAttribute

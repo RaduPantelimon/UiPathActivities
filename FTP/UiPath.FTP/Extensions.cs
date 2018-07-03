@@ -1,9 +1,9 @@
 ﻿using FluentFTP;
 using Renci.SshNet.Sftp;
 using System;
-using UiPath.FTP.Properties;
+using UiPathTeam.FTP.Properties;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     internal static class Extensions
     {

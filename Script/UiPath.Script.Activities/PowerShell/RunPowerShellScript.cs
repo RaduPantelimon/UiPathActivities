@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using UiPath.Script.Powershell;
+using UiPathTeam.Script.Powershell;
 
-namespace UiPath.Script.Activities.PowerShell
+namespace UiPathTeam.Script.Activities.PowerShell
 {
     public class RunPowerShellScript<TResult> : AsyncCodeActivity
     {

@@ -3,7 +3,7 @@ using System.Activities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace UiPath.Shared.Activities.Tests
+namespace UiPathTeam.Shared.Activities.Tests
 {
     internal class FailsAfterDelayNativeActivity : ContinuableAsyncNativeActivity
     {

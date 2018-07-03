@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using UiPath.XLExcel.Activities;
-using UiPath.XLExcel;
+using UiPathTeam.XLExcel.Activities;
+using UiPathTeam.XLExcel;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;

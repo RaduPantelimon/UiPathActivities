@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UiPath.FTP.Activities.Properties {
+namespace UiPathTeam.FTP.Activities.Properties {
     using System;
     
     

@@ -4,10 +4,10 @@ using System.Activities.Statements;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
-using UiPath.FTP.Activities.Properties;
-using UiPath.Shared.Activities;
+using UiPathTeam.FTP.Activities.Properties;
+using UiPathTeam.Shared.Activities;
 
-namespace UiPath.FTP.Activities
+namespace UiPathTeam.FTP.Activities
 {
     public class WithFtpSession : ContinuableAsyncNativeActivity
     {

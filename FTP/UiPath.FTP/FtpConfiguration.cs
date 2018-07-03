@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     public sealed class FtpConfiguration
     {

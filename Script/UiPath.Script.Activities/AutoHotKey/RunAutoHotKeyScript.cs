@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Threading;
-using UiPath.Script.AutoHotKey;
+using UiPathTeam.Script.AutoHotKey;
 
-namespace UiPath.Script.Activities.AutoHotKey
+namespace UiPathTeam.Script.Activities.AutoHotKey
 {
     public sealed class RunAutoHotKeyScript : ScriptActivity<string>
     {

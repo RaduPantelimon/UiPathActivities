@@ -9,9 +9,9 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
-using UiPath.FTP.Properties;
+using UiPathTeam.FTP.Properties;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     public class FtpSession : IFtpSession
     {

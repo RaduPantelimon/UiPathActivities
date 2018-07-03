@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Data;
 
 
-namespace UiPath.XLExcel.Activities
+namespace UiPathTeam.XLExcel.Activities
 {
     public class ConvertXLSToXLSX:CodeActivity
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UiPath.Script.Activities.Design.Editors
+namespace UiPathTeam.Script.Activities.Design.Editors
 {
     public partial class EditorTemplates
     {

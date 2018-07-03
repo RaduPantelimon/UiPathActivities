@@ -4,7 +4,7 @@ using System.Activities.Presentation.Model;
 using System.Activities.Presentation.PropertyEditing;
 using System.Windows;
 
-namespace UiPath.Script.Activities.Design.Editors
+namespace UiPathTeam.Script.Activities.Design.Editors
 {
     /// <summary>
     /// Interaction logic for ArgumentDictionaryEditor.xaml

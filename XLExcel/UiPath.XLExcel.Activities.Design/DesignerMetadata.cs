@@ -1,7 +1,7 @@
 ﻿using System.Activities.Presentation.Metadata;
 using System.ComponentModel;
 
-namespace UiPath.XLExcel.Activities.Design
+namespace UiPathTeam.XLExcel.Activities.Design
 {
     public class DesignerMetadata : IRegisterMetadata
     {

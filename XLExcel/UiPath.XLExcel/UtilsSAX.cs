@@ -16,7 +16,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Text.RegularExpressions;
 
-namespace UiPath.XLExcel
+namespace UiPathTeam.XLExcel
 {
     public static partial class Utils
     {

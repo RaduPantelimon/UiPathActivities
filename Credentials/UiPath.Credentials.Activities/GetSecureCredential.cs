@@ -3,7 +3,7 @@ using System.Activities;
 using System.ComponentModel;
 using System.Security;
 
-namespace UiPath.Credentials.Activities
+namespace UiPathTeam.Credentials.Activities
 {
     [Category("System.Credentials")]
     public class GetSecureCredential : CodeActivity<bool>

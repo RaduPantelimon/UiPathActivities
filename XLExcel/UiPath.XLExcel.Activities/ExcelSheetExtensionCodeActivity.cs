@@ -10,7 +10,7 @@ using System.Activities.Statements;
 using System.Activities.Validation;
 
 
-namespace UiPath.XLExcel.Activities
+namespace UiPathTeam.XLExcel.Activities
 {
     public abstract class ExcelSheetExtensionCodeActivity : CodeActivity
     {

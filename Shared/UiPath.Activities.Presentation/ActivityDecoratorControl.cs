@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace UiPath.Activities.Presentation
+namespace UiPathTeam.Activities.Presentation
 {
     public class ActivityDecoratorControl : ContentControl
     {

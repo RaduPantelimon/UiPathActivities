@@ -5,7 +5,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Threading;
 
-namespace UiPath.Script.Powershell
+namespace UiPathTeam.Script.Powershell
 {
     // An instance of this object is returned to the runtime upon beginning
     // execution.  This also keeps a pointer to a callback function, which

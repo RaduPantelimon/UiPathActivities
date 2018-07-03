@@ -67,17 +67,17 @@
     </XamlAppDef>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UiPath.XLExcel.Activities.Design\UiPath.XLExcel.Activities.Design.csproj">
+    <ProjectReference Include="..\UiPath.XLExcel.Activities.Design\UiPathTeam.XLExcel.Activities.Design.csproj">
       <Project>{9f93e197-cb43-4258-be6f-78344cbeb9f1}</Project>
-      <Name>UiPath.XLExcel.Activities.Design</Name>
+      <Name>UiPathTeam.XLExcel.Activities.Design</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UiPath.XLExcel.Activities\UiPath.XLExcel.Activities.csproj">
+    <ProjectReference Include="..\UiPath.XLExcel.Activities\UiPathTeam.XLExcel.Activities.csproj">
       <Project>{73de30a9-4ba0-4748-a06e-0b64810448b0}</Project>
-      <Name>UiPath.XLExcel.Activities</Name>
+      <Name>UiPathTeam.XLExcel.Activities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UiPath.XLExcel\UiPath.XLExcel.csproj">
+    <ProjectReference Include="..\UiPath.XLExcel\UiPathTeam.XLExcel.csproj">
       <Project>{c0038983-ae2b-4bb3-a59b-e1987f3f0215}</Project>
-      <Name>UiPath.XLExcel</Name>
+      <Name>UiPathTeam.XLExcel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

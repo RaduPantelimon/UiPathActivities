@@ -14,8 +14,8 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 
-using UiPath.XLExcel;
-using UiPath.XLExcel.Activities.Design;
+using UiPathTeam.XLExcel;
+using UiPathTeam.XLExcel.Activities.Design;
 
 namespace TestExcelExtensions
 {
@@ -124,7 +124,7 @@ namespace TestExcelExtensions
             };
 
 
-            var Result = WorkflowInvoker.Invoke(new UiPath.XLExcel.Activities.GetNumberOfRows(), wfParams);
+            var Result = WorkflowInvoker.Invoke(new UiPathTeam.XLExcel.Activities.GetNumberOfRows(), wfParams);
 
             object dec;
             bool success = Result.TryGetValue("NumberOfRows", out dec);

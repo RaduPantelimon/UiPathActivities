@@ -3,11 +3,11 @@ using System.Activities.Presentation;
 using System.Activities.Presentation.Metadata;
 using System.Activities.Presentation.PropertyEditing;
 using System.ComponentModel;
-using UiPath.Script.Activities.AutoHotKey;
-using UiPath.Script.Activities.Design.Editors;
-using UiPath.Script.Activities.PowerShell;
+using UiPathTeam.Script.Activities.AutoHotKey;
+using UiPathTeam.Script.Activities.Design.Editors;
+using UiPathTeam.Script.Activities.PowerShell;
 
-namespace UiPath.Script.Activities.Design
+namespace UiPathTeam.Script.Activities.Design
 {
     public class DesignerMetadata : IRegisterMetadata
     {

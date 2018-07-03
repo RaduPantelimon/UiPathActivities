@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UiPath.XLExcel.Activities.Design
+namespace UiPathTeam.XLExcel.Activities.Design
 {
     // Interaction logic for ReadRangeDesigner.xaml
     public partial class ReadRangeDesigner

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     // TODO: Need to test if all sessions get disposed in case of an exception.
     public interface IFtpSession : IDisposable

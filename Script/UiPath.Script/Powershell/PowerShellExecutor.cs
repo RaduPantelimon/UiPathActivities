@@ -4,7 +4,7 @@ using System.IO;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 
-namespace UiPath.Script.Powershell
+namespace UiPathTeam.Script.Powershell
 {
     public class PowerShellExecutor : IDisposable
     {

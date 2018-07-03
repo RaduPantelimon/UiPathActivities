@@ -2,7 +2,7 @@
 using System.Activities;
 using System.ComponentModel;
 
-namespace UiPath.Credentials.Activities
+namespace UiPathTeam.Credentials.Activities
 {
     [Category("System.Credentials")]
     public class RequestCredential : CodeActivity<bool>

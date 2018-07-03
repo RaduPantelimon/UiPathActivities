@@ -3,7 +3,7 @@ using System.Activities;
 using System.Activities.Statements;
 using System.Activities.Validation;
 
-namespace UiPath.Shared.Activities
+namespace UiPathTeam.Shared.Activities
 {
     public static class ActivityConstraints
     {

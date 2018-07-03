@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     [Flags]
     public enum FtpPermissions : uint

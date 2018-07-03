@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Markup;
 
-namespace UiPath.Script.Activities
+namespace UiPathTeam.Script.Activities
 {
     public abstract class ScriptActivity<T> : AsyncCodeActivity<T>
     {

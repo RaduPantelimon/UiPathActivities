@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows;
 //using System.Activities.Presentation.Model;
 
-using UiPath.XLExcel;
+using UiPathTeam.XLExcel;
 
 
-namespace UiPath.XLExcel.Activities
+namespace UiPathTeam.XLExcel.Activities
 {
 
     //[Designer(typeof(XLExcelApplicationScopeDesigner))]

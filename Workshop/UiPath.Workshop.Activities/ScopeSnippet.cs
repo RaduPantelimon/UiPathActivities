@@ -1,7 +1,7 @@
 ﻿using System.Activities;
 using System.ComponentModel;
 
-namespace UiPath.Workshop.Activities
+namespace UiPathTeam.Workshop.Activities
 {
     class ScopeSnippet
     {

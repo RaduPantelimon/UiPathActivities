@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System;
 
-namespace UiPath.Shared.Activities.Tests
+namespace UiPathTeam.Shared.Activities.Tests
 {
     [TestFixture]
     public class AbstractActivities

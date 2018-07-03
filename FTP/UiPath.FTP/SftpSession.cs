@@ -7,9 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using UiPath.FTP.Properties;
+using UiPathTeam.FTP.Properties;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     public class SftpSession : IFtpSession
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UiPath.XLExcel
+namespace UiPathTeam.XLExcel
 {
     public static partial class Utils
     {

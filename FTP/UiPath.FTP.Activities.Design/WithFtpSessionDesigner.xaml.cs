@@ -1,4 +1,4 @@
-﻿namespace UiPath.FTP.Activities.Design
+﻿namespace UiPathTeam.FTP.Activities.Design
 {
     public partial class WithFtpSessionDesigner
     {

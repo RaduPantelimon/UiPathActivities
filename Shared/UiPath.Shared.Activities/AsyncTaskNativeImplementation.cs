@@ -3,7 +3,7 @@ using System.Activities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace UiPath.Shared.Activities
+namespace UiPathTeam.Shared.Activities
 {
     internal struct AsyncTaskNativeImplementation
     {

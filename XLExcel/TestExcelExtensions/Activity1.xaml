@@ -6,8 +6,8 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
- xmlns:ux="clr-namespace:UiPath.XLExcel;assembly=UiPath.XLExcel"
- xmlns:uxa="clr-namespace:UiPath.XLExcel.Activities;assembly=UiPath.XLExcel.Activities"
+ xmlns:ux="clr-namespace:UiPathTeam.XLExcel;assembly=UiPathTeam.XLExcel"
+ xmlns:uxa="clr-namespace:UiPathTeam.XLExcel.Activities;assembly=UiPathTeam.XLExcel.Activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -34,9 +34,9 @@
       <AssemblyReference>System.Net.Http</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>UiPath.XLExcel.Activities.Design</AssemblyReference>
-      <AssemblyReference>UiPath.XLExcel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.XLExcel</AssemblyReference>
+      <AssemblyReference>UiPathTeam.XLExcel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.XLExcel.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.XLExcel</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>TestExcelExtensions</AssemblyReference>
     </sco:Collection>

@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{92E6CB4E-6542-419B-B674-7D8B9FB02BD2}"
 	ProjectSection(SolutionItems) = preProject
@@ -58,11 +56,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPath.Workshop.Activities.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XLExcel", "XLExcel", "{0F4CDE89-67B3-4CC1-8CE4-B76DE9DF1D4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPath.XLExcel", "XLExcel\UiPath.XLExcel\UiPath.XLExcel.csproj", "{C0038983-AE2B-4BB3-A59B-E1987F3F0215}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.XLExcel", "XLExcel\UiPath.XLExcel\UiPathTeam.XLExcel.csproj", "{C0038983-AE2B-4BB3-A59B-E1987F3F0215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPath.XLExcel.Activities", "XLExcel\UiPath.XLExcel.Activities\UiPath.XLExcel.Activities.csproj", "{73DE30A9-4BA0-4748-A06E-0B64810448B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.XLExcel.Activities", "XLExcel\UiPath.XLExcel.Activities\UiPathTeam.XLExcel.Activities.csproj", "{73DE30A9-4BA0-4748-A06E-0B64810448B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPath.XLExcel.Activities.Design", "XLExcel\UiPath.XLExcel.Activities.Design\UiPath.XLExcel.Activities.Design.csproj", "{9F93E197-CB43-4258-BE6F-78344CBEB9F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.XLExcel.Activities.Design", "XLExcel\UiPath.XLExcel.Activities.Design\UiPathTeam.XLExcel.Activities.Design.csproj", "{9F93E197-CB43-4258-BE6F-78344CBEB9F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExcelExtensions", "XLExcel\TestExcelExtensions\TestExcelExtensions.csproj", "{F1D03479-F6DC-4B95-B67C-8E81243C47FE}"
 EndProject

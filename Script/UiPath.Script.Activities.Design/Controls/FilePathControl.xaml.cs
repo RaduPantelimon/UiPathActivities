@@ -5,7 +5,7 @@ using System.Activities.Presentation.Model;
 using System.IO;
 using System.Windows;
 
-namespace UiPath.Script.Activities.Design.Controls
+namespace UiPathTeam.Script.Activities.Design.Controls
 {
     /// <summary>
     /// Interaction logic for ExpressionFilePathControl.xaml

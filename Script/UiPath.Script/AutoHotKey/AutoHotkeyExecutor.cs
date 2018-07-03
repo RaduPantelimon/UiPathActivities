@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace UiPath.Script.AutoHotKey
+namespace UiPathTeam.Script.AutoHotKey
 {
     public class AutoHotkeyExecutor
     {

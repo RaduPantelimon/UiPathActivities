@@ -2,7 +2,7 @@
 using System.Activities;
 using System.Diagnostics;
 
-namespace UiPath.Shared.Activities
+namespace UiPathTeam.Shared.Activities
 {
     public abstract class ContinuableAsyncNativeActivity : AsyncTaskNativeActivity
     {

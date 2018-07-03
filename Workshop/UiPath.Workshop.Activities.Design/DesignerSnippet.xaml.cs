@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UiPath.Workshop.Activities.Design
+namespace UiPathTeam.Workshop.Activities.Design
 {
     // Interaction logic for DesignerSnippet.xaml
     public partial class DesignerSnippet

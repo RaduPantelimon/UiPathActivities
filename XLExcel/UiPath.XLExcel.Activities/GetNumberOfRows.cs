@@ -11,10 +11,10 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 
 
-using UiPath.XLExcel;
+using UiPathTeam.XLExcel;
 
 
-namespace UiPath.XLExcel.Activities
+namespace UiPathTeam.XLExcel.Activities
 {
     public class GetNumberOfRows: ExcelSheetExtensionCodeActivity
     {

@@ -3,7 +3,7 @@ using System.Activities;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace UiPath.Shared.Activities
+namespace UiPathTeam.Shared.Activities
 {
     public abstract class ContinuableAsyncCodeActivity : AsyncTaskCodeActivity
     {

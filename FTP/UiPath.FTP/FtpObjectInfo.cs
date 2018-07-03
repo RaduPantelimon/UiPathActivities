@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UiPath.FTP
+namespace UiPathTeam.FTP
 {
     public sealed class FtpObjectInfo
     {

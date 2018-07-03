@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UiPath.XLExcel.Activities")]
-[assembly: AssemblyDescription("UiPath.XLExcel.Activities")]
+[assembly: AssemblyTitle("UiPathTeam.XLExcel.Activities")]
+[assembly: AssemblyDescription("UiPathTeam.XLExcel.Activities")]
 [assembly: AssemblyConfiguration("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

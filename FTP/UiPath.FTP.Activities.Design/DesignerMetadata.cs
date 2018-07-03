@@ -1,9 +1,9 @@
 ﻿using System.Activities.Presentation.Metadata;
 using System.Activities.Presentation.View.OutlineView;
 using System.ComponentModel;
-using UiPath.FTP.Activities.Design.Properties;
+using UiPathTeam.FTP.Activities.Design.Properties;
 
-namespace UiPath.FTP.Activities.Design
+namespace UiPathTeam.FTP.Activities.Design
 {
     public class DesignerMetadata : IRegisterMetadata
     {
