@@ -10,7 +10,7 @@ using System.Data;
 
 namespace UiPathTeam.XLExcel.Activities
 {
-    public class ConvertXLSToXLSX:CodeActivity
+    /*class ConvertXLSToXLSX:CodeActivity
     {
 
         [Category("Input")]
@@ -43,5 +43,5 @@ namespace UiPathTeam.XLExcel.Activities
             string resultingFilePath = Utils.ConvertToXLSX(oldFilePath, newFileName, directoryToSave);
             ResultingFilePath.Set(context, resultingFilePath);
         }
-    }
+    }*/
 }

@@ -11,7 +11,7 @@ namespace UiPathTeam.XLExcel.Activities.Design
 
             attributeTableBuilder.AddCustomAttributes(typeof(XLExcelApplicationScope), new DesignerAttribute(typeof(XLExcelApplicationScopeDesigner)));
             attributeTableBuilder.AddCustomAttributes(typeof(ReadRange), new DesignerAttribute(typeof(ReadRangeDesigner)));
-            attributeTableBuilder.AddCustomAttributes(typeof(ConvertXLSToXLSX), new DesignerAttribute(typeof(ConvertXLSToXLSXDesigner)));
+            //attributeTableBuilder.AddCustomAttributes(typeof(ConvertXLSToXLSX), new DesignerAttribute(typeof(ConvertXLSToXLSXDesigner)));
 
             MetadataStore.AddAttributeTable(attributeTableBuilder.CreateTable());
         }
