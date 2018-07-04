@@ -1,0 +1,14 @@
+﻿<sap:ActivityDesigner x:Class="UiPath.Workshop.Activities.Design.ScopeActivityDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapc="clr-namespace:System.Activities.Presentation.Converters;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation">
+    <DockPanel Width="300">
+        <sap:WorkflowItemPresenter AutomationProperties.AutomationId="Activity" Item="{Binding Path=ModelItem.Body.Handler, Mode=TwoWay}"
+                                   AllowedItemType="{x:Type sa:Activity}" HintText="Drop activity here" DockPanel.Dock="Bottom" />
+
+    </DockPanel>
+</sap:ActivityDesigner>

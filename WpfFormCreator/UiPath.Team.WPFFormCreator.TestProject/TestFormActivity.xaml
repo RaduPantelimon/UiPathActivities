@@ -1,0 +1,37 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:uwa="clr-namespace:UiPathTeam.WpfFormCreator.Activities;assembly=UiPathTeam.WpfFormCreator.Activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="{x:Null}" InputDictionary="{x:Null}" OutputDictionary="{x:Null}" StyleSheetPath="{x:Null}" SubmitElementName="{x:Null}" SubmitEventName="{x:Null}" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_1" sads:DebugSymbol.Symbol="d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwBHQMd2QICAQE=" />
+  <sap2010:WorkflowViewState.IdRef>UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="XamlFormCreator_1" sap:VirtualizedContainerService.HintSize="405.6,130.4" />
+      <sap2010:ViewStateData Id="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1" sap:VirtualizedContainerService.HintSize="445.6,210.4" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
