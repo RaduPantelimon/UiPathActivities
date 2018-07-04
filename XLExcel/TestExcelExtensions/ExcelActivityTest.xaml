@@ -53,7 +53,6 @@
       <Variable x:TypeArguments="si:StreamWriter" Name="streamWriter" />
     </Sequence.Variables>
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="123" />
-    <uxa:ConvertXLSToXLSX ResultingFilePath="{x:Null}" DirectoryToSave="C:\UiPath" sap2010:WorkflowViewState.IdRef="ConvertXLSToXLSX_1" NewFileName="Test123" OldFilePath="C:\UiPath\P0120180117_034752.xls" />
     <uxa:XLExcelApplicationScope sap2010:WorkflowViewState.IdRef="XLExcelApplicationScope_6">
       <uxa:XLExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ux:XLExcelContextInfo">
@@ -172,14 +171,13 @@
         </Sequence>
       </If.Then>
     </If>
-    <sads:DebugSymbol.Symbol>d2JDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xYTEV4Y2VsXFRlc3RFeGNlbEV4dGVuc2lvbnNcRXhjZWxBY3Rpdml0eVRlc3QueGFtbC0xA7ABDgIBATcFN0sCAVU4BTjQAQIBUTkFTSMCAUVOBVIRAgFAUwVeDgIBN18FaBQCAS5pBW8UAgEpcAWuAQoCAQI3QzdIAgFWOEg4UwIBVDiVATieAQIBUzirATjNAQIBUkoLSmMCAU0/C0UbAgFGUAlQUAIBQVsLW/0BAgE8VgtWZAIBOGYJZlACATNiC2JcAgEvbAtsXAIBKnATcBoCAQNyCawBFAIBBEIRQl0CAUg/gwE/lwECAUdzC4IBKQIBIIMBC5sBKQIBDpwBC6sBKQIBBXMxc7sBAgEoeRF/IQIBIYMBMYMBkwECAR+JARGYARwCAQ+cATGcAWUCAQ2iARGoASECAQZ8F3xjAgEjeYkBeY0BAgEiigETkAEjAgEXkQETlwEjAgEQpQEXpQFjAgEIogGJAaIBjQECAQeNARmNAWUCARqKAXaKAX4CARmKAYkBigGRAQIBGJQBGZQBZQIBEpEBiwGRAZMBAgER</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2JDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xYTEV4Y2VsXFRlc3RFeGNlbEV4dGVuc2lvbnNcRXhjZWxBY3Rpdml0eVRlc3QueGFtbCkxA68BDgIBATcFN0sCAVE4BUwjAgFFTQVREQIBQFIFXQ4CATdeBWcUAgEuaAVuFAIBKW8FrQEKAgECN0M3SAIBUkkLSWMCAU0+C0QbAgFGTwlPUAIBQVoLWv0BAgE8VQtVZAIBOGUJZVACATNhC2FcAgEvawtrXAIBKm8TbxoCAQNxCasBFAIBBEERQV0CAUg+gwE+lwECAUdyC4EBKQIBIIIBC5oBKQIBDpsBC6oBKQIBBXIxcrsBAgEoeBF+IQIBIYIBMYIBkwECAR+IARGXARwCAQ+bATGbAWUCAQ2hARGnASECAQZ7F3tjAgEjeIkBeI0BAgEiiQETjwEjAgEXkAETlgEjAgEQpAEXpAFjAgEIoQGJAaEBjQECAQeMARmMAWUCARqJAXaJAX4CARmJAYkBiQGRAQIBGJMBGZMBZQIBEpABiwGQAZMBAgER</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="629.6,62.4" />
-      <sap2010:ViewStateData Id="ConvertXLSToXLSX_1" sap:VirtualizedContainerService.HintSize="629.6,96" />
-      <sap2010:ViewStateData Id="ReadRange_8" sap:VirtualizedContainerService.HintSize="247.2,66.4" />
-      <sap2010:ViewStateData Id="XLExcelApplicationScope_6" sap:VirtualizedContainerService.HintSize="629.6,188" />
+      <sap2010:ViewStateData Id="ReadRange_8" sap:VirtualizedContainerService.HintSize="200,22.4" />
+      <sap2010:ViewStateData Id="XLExcelApplicationScope_6" sap:VirtualizedContainerService.HintSize="629.6,155.2" />
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="629.6,62.4" />
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="629.6,62.4" />
       <sap2010:ViewStateData Id="InvokeMethod_2" sap:VirtualizedContainerService.HintSize="629.6,131.2" />
@@ -220,14 +218,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="629.6,1152" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="652,2290.4">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="652,2121.6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="TestExcelExtensions.ExcelActivityTest_1" sap:VirtualizedContainerService.HintSize="692,2370.4" />
+      <sap2010:ViewStateData Id="TestExcelExtensions.ExcelActivityTest_1" sap:VirtualizedContainerService.HintSize="692,2201.6" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
