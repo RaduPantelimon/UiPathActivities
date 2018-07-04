@@ -31,16 +31,21 @@ namespace UiPath.Team.WPFFormCreator.TestProject
         [STAThread]
         static void Main()
         {
-            LogicTest();
+            //LogicTest();
+            TestWorkflow();
+
+
         }
-            static public void TestWorkflow()
+
+
+    static public void TestWorkflow()
         {
             ActivityXamlServicesSettings settings = new ActivityXamlServicesSettings
             {
                 CompileExpressions = true
             };
 
-            Activity workflow = ActivityXamlServices.Load("ExcelActivityTest.xaml", settings);
+            Activity workflow = ActivityXamlServices.Load("TestFormActivity.xaml", settings);
             WorkflowInvoker.Invoke(workflow);
 
             Console.WriteLine("Press <enter> to exit");
@@ -50,7 +55,6 @@ namespace UiPath.Team.WPFFormCreator.TestProject
 
         static void LogicTest()
         {
-            //UiPathTeam.WpfFormCreator.
             Grid mainGrid = FormsCreator.GetGridFromFile("HelperFiles\\ParentForm.xaml");
             ResourceDictionary mainDictionary = FormsCreator.GetResourceDictionaryFromFile("HelperFiles\\DemoDictionary.xaml");
 

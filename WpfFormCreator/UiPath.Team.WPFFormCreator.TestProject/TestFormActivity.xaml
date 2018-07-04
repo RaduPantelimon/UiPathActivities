@@ -1,9 +1,11 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
  xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
  xmlns:uwa="clr-namespace:UiPathTeam.WpfFormCreator.Activities;assembly=UiPathTeam.WpfFormCreator.Activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -18,20 +20,118 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
-      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
-      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Windows</AssemblyReference>
+      <AssemblyReference>System.Windows.Controls.Input.Toolkit</AssemblyReference>
+      <AssemblyReference>System.Windows.Controls.Layout.Toolkit</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>WindowsFormsIntegration</AssemblyReference>
+      <AssemblyReference>WPFToolkit</AssemblyReference>
+      <AssemblyReference>UiPathTeam.WpfFormCreator.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.WpfFormCreator.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.WpfFormCreator</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.Team.WPFFormCreator.TestProject</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="{x:Null}" InputDictionary="{x:Null}" OutputDictionary="{x:Null}" StyleSheetPath="{x:Null}" SubmitElementName="{x:Null}" SubmitEventName="{x:Null}" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_1" sads:DebugSymbol.Symbol="d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwBHQMd2QICAQE=" />
-  <sap2010:WorkflowViewState.IdRef>UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1</sap2010:WorkflowViewState.IdRef>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" Name="output" />
+    </Sequence.Variables>
+    <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_2.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_1" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+      <uwa:XamlFormCreator.InputDictionary>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
+          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
+                //{ "ComboBox2", new Dictionary&lt;string, object&gt;{ { "IsSelected", true } } },
+                { "tb1", new Dictionary&lt;string, object&gt;{ { "Text", "blabla" } } },
+                { "tb2", new Dictionary&lt;string, object&gt;{ { "Text", "blabla2" } } },
+                { "tb3", new Dictionary&lt;string, object&gt;{ { "Text", "blabla3" } } }
+
+            }</mca:CSharpValue>
+        </InArgument>
+      </uwa:XamlFormCreator.InputDictionary>
+      <uwa:XamlFormCreator.OutputDictionary>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
+          <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">output</mca:CSharpReference>
+        </OutArgument>
+      </uwa:XamlFormCreator.OutputDictionary>
+    </uwa:XamlFormCreator>
+    <ForEach x:TypeArguments="scg:KeyValuePair(x:String, scg:Dictionary(x:String, x:Object))" DisplayName="ForEach&lt;KeyValuePair&lt;String,Dictionary&lt;String,Object&gt;&gt;&gt;" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+      <ForEach.Values>
+        <InArgument x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(x:String, scg:Dictionary(x:String, x:Object)))">
+          <mca:CSharpValue x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(x:String, scg:Dictionary(x:String, x:Object)))">output</mca:CSharpValue>
+        </InArgument>
+      </ForEach.Values>
+      <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, scg:Dictionary(x:String, x:Object))">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, scg:Dictionary(x:String, x:Object))" Name="item" />
+        </ActivityAction.Argument>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1">
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">"New Item: " + item.Key</mca:CSharpValue>
+            </InArgument>
+          </WriteLine>
+          <ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:Object)" DisplayName="ForEach&lt;KeyValuePair&lt;String,Object&gt;&gt;" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+            <ForEach.Values>
+              <InArgument x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(x:String, x:Object))">
+                <mca:CSharpValue x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(x:String, x:Object))">item.Value</mca:CSharpValue>
+              </InArgument>
+            </ForEach.Values>
+            <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:Object)">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:Object)" Name="item1" />
+              </ActivityAction.Argument>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">item1.Key + " ===&gt;" + item1.Value.ToString()</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+            </ActivityAction>
+          </ForEach>
+        </Sequence>
+      </ActivityAction>
+    </ForEach>
+    <sads:DebugSymbol.Symbol>d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwRNQNwDgIBATkFShsCARNLBW4PAgECOb0DOc8DAgEbOUU5yAECARo8C0IgAgEYOeADOecDAgEXRwtHiwECARU5pQI5qgMCARROC06WAQIBEVUJbBQCAQNWC1oXAgENWwtrFQIBBFgPWGQCAQ5eEV6GAQIBCmUPaRsCAQVnE2eAAQIBBg==</sads:DebugSymbol.Symbol>
+  </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="XamlFormCreator_1" sap:VirtualizedContainerService.HintSize="405.6,130.4" />
-      <sap2010:ViewStateData Id="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1" sap:VirtualizedContainerService.HintSize="445.6,210.4" />
+      <sap2010:ViewStateData Id="XamlFormCreator_1" sap:VirtualizedContainerService.HintSize="456,140" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="287.2,62.4" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="210.4,62.4" />
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="287.2,213.6" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="309.6,440.8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="456,592" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="478.4,896.8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1" sap:VirtualizedContainerService.HintSize="518.4,976.8" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

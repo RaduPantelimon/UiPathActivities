@@ -121,13 +121,13 @@
     <value>If GetAllProperties is checked, the ElementsToRetrieve array cannot be empty.</value>
   </data>
   <data name="ErrorMessage_Generic" xml:space="preserve">
-    <value>The Form could not be launched. {0}</value>
+    <value>The Form could not be launched. Internal Exception:{0}</value>
   </data>
   <data name="ErrorMessage_InvaidXAMLStyleSheet" xml:space="preserve">
-    <value>The XAML for the  StyleSheet is Invalid. This file must be a valid xaml file with a parent node of type ResourceDictionary.{0}</value>
+    <value>The XAML for the  StyleSheet is Invalid. This file must be a valid xaml file with a parent node of type ResourceDictionary. Internal Exception: {0}</value>
   </data>
   <data name="ErrorMessage_InvalidFormXAML" xml:space="preserve">
-    <value>The XAML mark-up provided for the Form is invalid. Make sure that the input is a valid WPF XAML form.{0}</value>
+    <value>The XAML mark-up provided for the Form is invalid. Make sure that the input is a valid WPF XAML form and its root element is a Grid containing the proper namespaces. Internal Exception:{0}</value>
   </data>
   <data name="ErrorMessage_NoInputGiven" xml:space="preserve">
     <value>If GetAllProperties is unchecked, the Inputs dictionary cannot be empty</value>

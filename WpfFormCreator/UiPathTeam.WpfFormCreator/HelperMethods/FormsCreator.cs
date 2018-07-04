@@ -34,7 +34,7 @@ namespace UiPathTeam.WpfFormCreator
             string submitEventName,
             Dictionary<string, Dictionary<string, object>> input,
             bool getAllElements = false, 
-            string[] elementsToRetrieve=null
+            string[] elementsToRetrieve = null
             )
         {
 
@@ -58,31 +58,49 @@ namespace UiPathTeam.WpfFormCreator
 
         public static ResourceDictionary  GetResourceDictionaryFromFile(string filePath)
         {
-            //load file
-            XDocument resDictionaryDocument = XDocument.Load(filePath);
-            XElement mainResDictionary = XElement.Parse(resDictionaryDocument.FirstNode.ToString());
+            try
+            {
+                //load file
+                XDocument resDictionaryDocument = XDocument.Load(filePath);
+                XElement mainResDictionary = XElement.Parse(resDictionaryDocument.FirstNode.ToString());
 
-            // Load WPF Grid with XamlReader
-            Stream stream = Utils.GenerateStreamFromString(mainResDictionary.ToString());
-            ResourceDictionary myResourceDictionary = (ResourceDictionary)XamlReader.Load(stream);
+                // Load WPF Grid with XamlReader
+                Stream stream = Utils.GenerateStreamFromString(mainResDictionary.ToString());
+                ResourceDictionary myResourceDictionary = (ResourceDictionary)XamlReader.Load(stream);
 
-            return myResourceDictionary;
+                return myResourceDictionary;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format(WpfFormCreatorResources.ErrorMessage_InvaidXAMLStyleSheet,
+                    ex.ToString()));
+            }
         }
 
         public static Grid GetGridFromFile(string filePath)
         {
-            //load file
-            XDocument mainComponent = XDocument.Load(filePath);
-            XElement mainAppElem = XElement.Parse(mainComponent.FirstNode.ToString());
+            try
+            {
+
+                //load file
+                XDocument mainComponent = XDocument.Load(filePath);
+                XElement mainAppElem = XElement.Parse(mainComponent.FirstNode.ToString());
+
+                //converting the node to string so we convert it to wpf elem
+                Stream s = Utils.GenerateStreamFromString(mainAppElem.ToString());
+
+                // Load WPF Grid with XamlReader
+                System.Windows.Controls.Grid mainGrid = null;
+                mainGrid = (System.Windows.Controls.Grid)XamlReader.Load(s);
+                return mainGrid;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(String.Format(WpfFormCreatorResources.ErrorMessage_InvalidFormXAML,
+                    ex.ToString()));
+            }
             
-            //converting the node to string so we convert it to wpf elem
-            Stream s = Utils.GenerateStreamFromString(mainAppElem.ToString());
-
-            // Load WPF Grid with XamlReader
-            System.Windows.Controls.Grid mainGrid = null;
-            mainGrid = (System.Windows.Controls.Grid)XamlReader.Load(s);
-
-            return mainGrid;
+            
         }
 
         public static Control FindChild(DependencyObject parent, string childName)
@@ -266,3 +284,37 @@ namespace UiPathTeam.WpfFormCreator
 }
 
 
+/*
+   public static Grid GetGridFromFile(string filePath)
+        {
+            //load file
+            XDocument mainComponent = XDocument.Load(filePath);
+
+            XNamespace aw = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
+            XElement mainAppElem = new XElement(aw + "Grid", 
+                new XAttribute("xmlns", "http://schemas.microsoft.com/winfx/2006/xaml/presentation"),
+                new XAttribute(XNamespace.Xmlns + "x", "http://schemas.microsoft.com/winfx/2006/xaml"),
+                new XAttribute(XNamespace.Xmlns + "d", "http://schemas.microsoft.com/expression/blend/2008"),
+                new XAttribute(XNamespace.Xmlns + "mc", "http://schemas.openxmlformats.org/markup-compatibility/2006"),
+                XElement.Parse(mainComponent.FirstNode.ToString()));
+
+
+            //converting the node to string so we convert it to wpf elem
+            Stream s = Utils.GenerateStreamFromString(mainAppElem.ToString());
+
+            ParserContext context = new ParserContext();
+            context.XmlnsDictionary.Add("", "http://schemas.microsoft.com/winfx/2006/xaml/presentation");
+            context.XmlnsDictionary.Add("x", "http://schemas.microsoft.com/winfx/2006/xaml");
+            context.XmlnsDictionary.Add("d", "http://schemas.microsoft.com/expression/blend/2008");
+            context.XmlnsDictionary.Add("mc", "http://schemas.openxmlformats.org/markup-compatibility/2006");
+
+
+            // Load WPF Grid with XamlReader
+            System.Windows.Controls.Grid mainGrid = null;
+            mainGrid = (System.Windows.Controls.Grid)XamlReader.Load(s, context);
+
+            return mainGrid;
+        }
+     
+     
+     */

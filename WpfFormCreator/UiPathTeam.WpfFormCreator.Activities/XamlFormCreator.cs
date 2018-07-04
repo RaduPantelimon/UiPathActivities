@@ -75,8 +75,28 @@ namespace UiPathTeam.WpfFormCreator.Activities
 
         protected override void Execute(NativeActivityContext context)
         {
-            throw new NotImplementedException();
+            //get data from context
+            bool getAllProperties = GetAllProperties;
+            string formXAMLPath = FormXAMLPath.Get(context);
+            string styleSheetPath = StyleSheetPath.Get(context);
+            string submitElementName = SubmitElementName.Get(context);
+            string submitEventName = SubmitEventName.Get(context);
+            Dictionary<string, Dictionary<string, object>> input = InputDictionary.Get(context);
+            string[] elementsToRetrieve = ElementsToRetrieve.Get(context);
 
+
+            //launch form and get result data
+            Dictionary<string, Dictionary<string, object>> Results = FormsCreator.LaunchForm(
+               formXAMLPath,
+               styleSheetPath,
+               submitElementName, 
+               submitEventName,
+               input,
+               GetAllProperties,
+               elementsToRetrieve);
+
+            //set output value
+            OutputDictionary.Set(context,Results);
         }
     }
 }

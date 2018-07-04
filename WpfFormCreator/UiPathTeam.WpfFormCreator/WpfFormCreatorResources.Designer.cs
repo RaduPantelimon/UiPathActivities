@@ -70,7 +70,7 @@ namespace UiPathTeam.WpfFormCreator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Form could not be launched. {0}.
+        ///   Looks up a localized string similar to The Form could not be launched. Internal Exception:{0}.
         /// </summary>
         public static string ErrorMessage_Generic {
             get {
@@ -79,7 +79,7 @@ namespace UiPathTeam.WpfFormCreator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The XAML for the  StyleSheet is Invalid. This file must be a valid xaml file with a parent node of type ResourceDictionary.{0}.
+        ///   Looks up a localized string similar to The XAML for the  StyleSheet is Invalid. This file must be a valid xaml file with a parent node of type ResourceDictionary. Internal Exception: {0}.
         /// </summary>
         public static string ErrorMessage_InvaidXAMLStyleSheet {
             get {
@@ -88,7 +88,7 @@ namespace UiPathTeam.WpfFormCreator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The XAML mark-up provided for the Form is invalid. Make sure that the input is a valid WPF XAML form.{0}.
+        ///   Looks up a localized string similar to The XAML mark-up provided for the Form is invalid. Make sure that the input is a valid WPF XAML form and its root element is a Grid containing the proper namespaces. Internal Exception:{0}.
         /// </summary>
         public static string ErrorMessage_InvalidFormXAML {
             get {
