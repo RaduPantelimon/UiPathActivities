@@ -94,6 +94,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </None>
+    <None Include="TestFiles\ParentForm_3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestFiles\ParentForm_4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
     <Page Include="TestUiElem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +135,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="TestFiles\albertcamus.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Themes\Metro\HowToApplyTheme.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +146,7 @@
       <Name>UiPathTeam.WpfFormCreator.Activities.Design</Name>
     </ProjectReference>
     <ProjectReference Include="..\UiPathTeam.WpfFormCreator.Activities\UiPathTeam.WpfFormCreator.Activities.csproj">
-      <Project>{6F1AC216-E8BB-4880-A5B0-305DCA997B4F}</Project>
+      <Project>{6f1ac216-e8bb-4880-a5b0-305dca997b4f}</Project>
       <Name>UiPathTeam.WpfFormCreator.Activities</Name>
     </ProjectReference>
     <ProjectReference Include="..\UiPathTeam.WpfFormCreator\UiPathTeam.WpfFormCreator.csproj">

@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorMessage_ElementsToRetrieveError" xml:space="preserve">
+    <value>The property Elements to Retrieve must be used only when the Get All Properties is set to True </value>
+  </data>
   <data name="ErrorMessage_ElementsToRetrieveMissing" xml:space="preserve">
     <value>If GetAllProperties is checked, the ElementsToRetrieve array cannot be empty.</value>
+  </data>
+  <data name="ErrorMessage_EmptyInput" xml:space="preserve">
+    <value>The Input Dictionary and the Elements to Retrieve cannot be both null at the same time.</value>
   </data>
   <data name="ErrorMessage_Generic" xml:space="preserve">
     <value>The Form could not be launched. Internal Exception:{0}</value>

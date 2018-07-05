@@ -46,14 +46,11 @@ namespace UiPathTeam.WpfFormCreator.HelperMethods
                                 bool _getAllProperties)
         {
 
-            /*if(!_getAllElements && (_input == null || _input.Count == 0))
-            {
-                throw new Exception("If GetAllElements is false, the Inputs dictionary must not be empty.");
-            }*/
+           
             if ((_elementsToRetrieve == null || _elementsToRetrieve.Length == 0) &&
                 (_input == null || _input.Count ==0 ))
             {
-                throw new Exception("The Inputs and Element Name array cannot be both empty.");
+                throw new Exception(WpfFormCreatorResources.ErrorMessage_EmptyInput);
             }
 
             contentPath = _contentPath;

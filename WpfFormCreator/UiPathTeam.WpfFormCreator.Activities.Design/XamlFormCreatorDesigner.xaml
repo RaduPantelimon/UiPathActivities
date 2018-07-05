@@ -28,32 +28,16 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Xaml Form Path:" 
+                       Grid.Row ="0" Grid.Column="0" Height="16" Margin="2,5" Width="120"/>
             <sapv:ExpressionTextBox 
                     Name="FormXAMLPath"
                     Expression="{Binding Path=ModelItem.FormXAMLPath, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
                     ExpressionType="s:String"
                     HintText="Form XAML Path"
-                    OwnerActivity="{Binding Path=ModelItem}"
-                    Margin="0,6,0,6"
-                    Width="385" 
-                    Height="25"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    MaxLines="1" />
-            <Button DockPanel.Dock="Right" 
-                        Margin="0,6,0,6"
-                        Height="20"
-                        Width="25"
-                        Click="Button_Click_FormXAMLPath"  
-                        Grid.Row="0"
-                        Grid.Column="1" Content="..."/>
-
-            <sapv:ExpressionTextBox 
-                    Name="StyleSheetPath"
-                    Expression="{Binding Path=ModelItem.StyleSheetPath, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
-                    ExpressionType="s:String"
-                    HintText="StyleSheet Path"
                     OwnerActivity="{Binding Path=ModelItem}"
                     Margin="0,6,0,6"
                     Width="385" 
@@ -65,8 +49,30 @@
                         Margin="0,6,0,6"
                         Height="20"
                         Width="25"
-                        Click="Button_Click_StyleSheetPath"  
+                        Click="Button_Click_FormXAMLPath"  
                         Grid.Row="1"
+                        Grid.Column="1" Content="..."/>
+          
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="StyleSheet Path:" 
+                       Grid.Row ="2" Grid.Column="0" Height="16" Margin="2,5" Width="100"/>
+            <sapv:ExpressionTextBox 
+                    Name="StyleSheetPath"
+                    Expression="{Binding Path=ModelItem.StyleSheetPath, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
+                    ExpressionType="s:String"
+                    HintText="StyleSheet Path"
+                    OwnerActivity="{Binding Path=ModelItem}"
+                    Margin="0,6,0,6"
+                    Width="385" 
+                    Height="25"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    MaxLines="1" />
+            <Button DockPanel.Dock="Right" 
+                        Margin="0,6,0,6"
+                        Height="20"
+                        Width="25"
+                        Click="Button_Click_StyleSheetPath"  
+                        Grid.Row="3"
                         Grid.Column="1">...</Button>
         </Grid>
 

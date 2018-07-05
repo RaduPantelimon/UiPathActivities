@@ -61,11 +61,29 @@ namespace UiPathTeam.WpfFormCreator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The property Elements to Retrieve must be used only when the Get All Properties is set to True .
+        /// </summary>
+        public static string ErrorMessage_ElementsToRetrieveError {
+            get {
+                return ResourceManager.GetString("ErrorMessage_ElementsToRetrieveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If GetAllProperties is checked, the ElementsToRetrieve array cannot be empty..
         /// </summary>
         public static string ErrorMessage_ElementsToRetrieveMissing {
             get {
                 return ResourceManager.GetString("ErrorMessage_ElementsToRetrieveMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Input Dictionary and the Elements to Retrieve cannot be both null at the same time..
+        /// </summary>
+        public static string ErrorMessage_EmptyInput {
+            get {
+                return ResourceManager.GetString("ErrorMessage_EmptyInput", resourceCulture);
             }
         }
         
