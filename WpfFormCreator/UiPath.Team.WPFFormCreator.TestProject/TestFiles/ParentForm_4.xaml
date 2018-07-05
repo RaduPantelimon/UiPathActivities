@@ -1,0 +1,68 @@
+﻿<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+       
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        
+     >
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Label>Name:</Label>
+    <Grid></Grid>
+
+    <TextBox Grid.Column="1" Margin="0,0,0,10"  Name="tb1"/>
+    <Label Grid.Row="1">E-mail:</Label>
+    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Name="tb2" />
+    <Label Grid.Row="2">Comment:</Label>
+    <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="True" Name="tb3" />
+    <Button Grid.Row="6" Grid.Column="1" Margin="5" HorizontalAlignment="Center" Name="buttonClickClick" Width="100" Height="30" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">Button</Button>
+    <TextBlock Grid.Row="3" Grid.Column="0" Text="Preffered office tool:" FontSize="8"/>
+    <Grid Grid.Row="3" Grid.Column="1" Height="100">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <RadioButton  Grid.Row="0" Name="office2007" GroupName="Office" Content="Microsoft Office 2007" />
+        <RadioButton  Grid.Row="1" Name="office2003" GroupName="Office" Content="Microsoft Office 2003"/>
+        <RadioButton  Grid.Row="2" Name="openOffice" GroupName="Office" Content="Open Office"/>
+    </Grid>
+    <Image
+         Grid.Row="4" Grid.Column="0" 
+        Source="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\albertcamus.jpg" 
+
+           Margin="2" Name="image1" Stretch="Fill" 
+
+           Width="96"  HorizontalAlignment="Left" >
+
+        <Image.ToolTip>
+            <TextBlock>
+            <Run TextBlock.FontWeight="Bold">Employee ID:</Run>
+            <TextBlock Margin="4,0,0,0" Text="Camus" />
+          </TextBlock>
+        </Image.ToolTip>
+    </Image>
+    <CheckBox Grid.Row="4" Grid.Column="1"  
+        Name="McCheckBox" Content="Is This you?"  VerticalAlignment="Center">
+    </CheckBox>
+    <TextBlock Grid.Row="5" Grid.Column="0" Text="Year you were born"/>
+    <ComboBox Grid.Row="5" Grid.Column="1"  
+        Width="Auto" Name="cmbBudgetYear" >
+        <ComboBoxItem Content="2009" />
+        <ComboBoxItem Content="2010" />
+        <ComboBoxItem Content="2011" />
+        <ComboBoxItem Content="2012" />
+    </ComboBox>
+</Grid>
