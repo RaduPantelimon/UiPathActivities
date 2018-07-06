@@ -167,6 +167,13 @@ namespace UiPathTeam.WpfFormCreator
             //close window
             Window.GetWindow(this).Close();
         }
+
+
+        //make window the topmost when initialized
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            this.Topmost = true;
+        }
     }
 }
 

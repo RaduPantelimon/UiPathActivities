@@ -3,6 +3,7 @@ using System;
 using System.Activities;
 using System.Activities.Presentation.Model;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UiPathTeam.WpfFormCreator;
 
 namespace UiPathTeam.WpfFormCreator.Activities.Design
 {
@@ -30,14 +32,15 @@ namespace UiPathTeam.WpfFormCreator.Activities.Design
 
             OpenFileDialog _openFileDialog = new OpenFileDialog();
             _openFileDialog.Title = "Open Xaml File";
+             _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             _openFileDialog.Filter = "Excel Files|*.xml;*.xaml";
-            _openFileDialog.InitialDirectory = @"C:\";
+            //_openFileDialog.InitialDirectory = @"C:\";
+
 
             if (_openFileDialog.ShowDialog() == true)
             {
                 ModelProperty property = this.ModelItem.Properties["StyleSheetPath"];
-                //property
-                property.SetValue(new InArgument<string>(_openFileDialog.FileName));
+                property.SetValue(new InArgument<string>(Utils.TrimFilePath(_openFileDialog.FileName, Directory.GetCurrentDirectory())));
 
             }
         }
@@ -47,15 +50,14 @@ namespace UiPathTeam.WpfFormCreator.Activities.Design
 
             OpenFileDialog _openFileDialog = new OpenFileDialog();
             _openFileDialog.Title = "Open Xaml File";
+            _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             _openFileDialog.Filter = "Excel Files|*.xml;*.xaml";
-            _openFileDialog.InitialDirectory = @"C:\";
+            //_openFileDialog.InitialDirectory = @"C:\";
 
             if (_openFileDialog.ShowDialog() == true)
             {
                 ModelProperty property = this.ModelItem.Properties["FormXAMLPath"];
-                //property
-                property.SetValue(new InArgument<string>(_openFileDialog.FileName));
-
+                property.SetValue(new InArgument<string>(Utils.TrimFilePath(_openFileDialog.FileName, Directory.GetCurrentDirectory())));
             }
         }
     }

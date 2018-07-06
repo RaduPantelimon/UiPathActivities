@@ -7,6 +7,7 @@ using System.Activities;
 using System.ComponentModel;
 using System.Data;
 using System.Activities.Validation;
+using System.IO;
 
 namespace UiPathTeam.WpfFormCreator.Activities
 {

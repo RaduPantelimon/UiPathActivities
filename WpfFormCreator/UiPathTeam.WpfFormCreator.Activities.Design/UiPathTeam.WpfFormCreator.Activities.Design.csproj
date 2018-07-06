@@ -89,6 +89,10 @@
       <Project>{6f1ac216-e8bb-4880-a5b0-305dca997b4f}</Project>
       <Name>UiPathTeam.WpfFormCreator.Activities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UiPathTeam.WpfFormCreator\UiPathTeam.WpfFormCreator.csproj">
+      <Project>{c7f4915c-c276-4b05-a463-abca8ef3b06a}</Project>
+      <Name>UiPathTeam.WpfFormCreator</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,10 +4,10 @@
         <Setter Property="Foreground" Value="Red" />
         <Setter Property="FontSize" Value="24" />
     </Style>
-    <Style TargetType="Button">
+    <!--<Style TargetType="Button">
         <Setter Property="Foreground" Value="Red" />
         <Setter Property="FontSize" Value="24" />
-    </Style>
+    </Style>-->
     
 
 </ResourceDictionary>

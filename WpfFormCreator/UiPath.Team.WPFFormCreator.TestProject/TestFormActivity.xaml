@@ -117,18 +117,20 @@
               </OutArgument>
             </uwa:XamlFormCreator.OutputDictionary>
           </uwa:XamlFormCreator>
-        </Sequence>
-      </If.Then>
-    </If>
-    <uwa:XamlFormCreator FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_4.xaml" GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_3" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
-      <uwa:XamlFormCreator.ElementsToRetrieve>
-        <InArgument x:TypeArguments="s:String[]">
-          <mca:CSharpValue x:TypeArguments="s:String[]">new string[]{ "openOffice"}</mca:CSharpValue>
-        </InArgument>
-      </uwa:XamlFormCreator.ElementsToRetrieve>
-      <uwa:XamlFormCreator.InputDictionary>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
-          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
+          <uwa:XamlFormCreator GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_3" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+            <uwa:XamlFormCreator.ElementsToRetrieve>
+              <InArgument x:TypeArguments="s:String[]">
+                <mca:CSharpValue x:TypeArguments="s:String[]">new string[]{ "openOffice"}</mca:CSharpValue>
+              </InArgument>
+            </uwa:XamlFormCreator.ElementsToRetrieve>
+            <uwa:XamlFormCreator.FormXAMLPath>
+              <InArgument x:TypeArguments="x:String">
+                <mca:CSharpValue x:TypeArguments="x:String">"TestFiles\\ParentForm_4.xaml"</mca:CSharpValue>
+              </InArgument>
+            </uwa:XamlFormCreator.FormXAMLPath>
+            <uwa:XamlFormCreator.InputDictionary>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
+                <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
                 //{ "ComboBox2", new Dictionary&lt;string, object&gt;{ { "IsSelected", true } } },
                 { "tb1", new Dictionary&lt;string, object&gt;{ { "Text", "blabla" } } },
                 { "tb2", new Dictionary&lt;string, object&gt;{ { "Text", "blabla2" } } },
@@ -141,8 +143,28 @@
                                                                     { "SelectedValue", "2011" } } }
 
             }</mca:CSharpValue>
+              </InArgument>
+            </uwa:XamlFormCreator.InputDictionary>
+            <uwa:XamlFormCreator.OutputDictionary>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
+                <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">output</mca:CSharpReference>
+              </OutArgument>
+            </uwa:XamlFormCreator.OutputDictionary>
+          </uwa:XamlFormCreator>
+        </Sequence>
+      </If.Then>
+    </If>
+    <uwa:XamlFormCreator InputDictionary="{x:Null}" StyleSheetPath="{x:Null}" GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_5" SubmitElementName="submitButton" SubmitEventName="Click">
+      <uwa:XamlFormCreator.ElementsToRetrieve>
+        <InArgument x:TypeArguments="s:String[]">
+          <mca:CSharpValue x:TypeArguments="s:String[]">new string[]{ "openOffice"}</mca:CSharpValue>
         </InArgument>
-      </uwa:XamlFormCreator.InputDictionary>
+      </uwa:XamlFormCreator.ElementsToRetrieve>
+      <uwa:XamlFormCreator.FormXAMLPath>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">"TestFiles\\ParentForm_5.xaml"</mca:CSharpValue>
+        </InArgument>
+      </uwa:XamlFormCreator.FormXAMLPath>
       <uwa:XamlFormCreator.OutputDictionary>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
           <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">output</mca:CSharpReference>
@@ -185,22 +207,23 @@
         </Sequence>
       </ActivityAction>
     </ForEach>
-    <sads:DebugSymbol.Symbol>d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwqNgO9AQ4CAQE6BXoKAgEeewWXARsCAROYAQW7AQ8CAQI6EzoaAgEfPAl4FAIBIHueA3uwAwIBHXsne6oBAgEcfgt+ZgIBGoMBC48BIAIBGHvBA3vIAwIBF5QBC5QBiwECARV7hgJ7iwMCARSbAQubAZYBAgERogEJuQEUAgEDPQtOIQIBM08LXyECASpgC3chAgEhowELpwEXAgENqAELuAEVAgEEPcMDPdUDAgE7PUs9zgECATpAEUYgAgE4PeYDPe0DAgE3SxFLkQECATU9qwI9sAMCATRPwwNP1QMCATJPS0/OAQIBMVIRVyACAS9P5gNP7QMCAS5cEVyRAQIBLE+rAk+wAwIBK2DDA2DVAwIBKWBLYM4BAgEoYxFvIAIBJmDmA2DtAwIBJXQRdJEBAgEjYKsCYLADAgEipQEPpQFkAgEOqwERqwGGAQIBCrIBD7YBGwIBBbQBE7QBgAECAQY=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwwNgPTAQ4CAQE6BZwBCgIBHJ0BBa0BGwIBE64BBdEBDwIBAjoTOhoCAR08CZoBFAIBHp0BrQGdAbsBAgEbpQELpQFnAgEZoAELoAFmAgEXnQHMAZ0B0wECARaqAQuqAYsBAgEUsQELsQGWAQIBEbgBCc8BFAIBAz0LTiECAT1PC18hAgE0YAt3IQIBK3gLmQEhAgEfuQELvQEXAgENvgELzgEVAgEEPcMDPdUDAgFFPUs9zgECAURAEUYgAgFCPeYDPe0DAgFBSxFLkQECAT89qwI9sAMCAT5PwwNP1QMCATxPS0/OAQIBO1IRVyACATlP5gNP7QMCAThcEVyRAQIBNk+rAk+wAwIBNWDDA2DVAwIBM2BLYM4BAgEyYxFvIAIBMGDmA2DtAwIBL3QRdJEBAgEtYKsCYLADAgEseJMCeKUCAgEqgAERgAFtAgEoexF7bAIBJoUBEZEBIAIBJHi2Ani9AgIBI5YBEZYBkQECASF4e3iAAgIBILsBD7sBZAIBDsEBEcEBhgECAQrIAQ/MARsCAQXKARPKAYABAgEG</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="XamlFormCreator_2" sap:VirtualizedContainerService.HintSize="456,191.2" />
       <sap2010:ViewStateData Id="XamlFormCreator_1" sap:VirtualizedContainerService.HintSize="456,191.2" />
       <sap2010:ViewStateData Id="XamlFormCreator_4" sap:VirtualizedContainerService.HintSize="456,191.2" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="478.4,778.4">
+      <sap2010:ViewStateData Id="XamlFormCreator_3" sap:VirtualizedContainerService.HintSize="456,191.2" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="478.4,1009.6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="603.2,930.4" />
-      <sap2010:ViewStateData Id="XamlFormCreator_3" sap:VirtualizedContainerService.HintSize="603.2,191.2" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="603.2,1161.6" />
+      <sap2010:ViewStateData Id="XamlFormCreator_5" sap:VirtualizedContainerService.HintSize="603.2,191.2" />
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="287.2,62.4" />
       <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="210.4,62.4" />
       <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="287.2,213.6" />
@@ -212,14 +235,14 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="603.2,592" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="625.6,1918.4">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="625.6,2149.6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1" sap:VirtualizedContainerService.HintSize="665.6,1998.4" />
+      <sap2010:ViewStateData Id="UiPath.Team.WPFFormCreator.TestProject.TestFormActivity_1" sap:VirtualizedContainerService.HintSize="665.6,2229.6" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

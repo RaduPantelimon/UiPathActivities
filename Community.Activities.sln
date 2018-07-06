@@ -71,10 +71,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.WPFFormCreator.TestProject", "WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\UiPathTeam.WPFFormCreator.TestProject.csproj", "{DB4AE5B3-2417-455C-B094-480845995BF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.WpfFormCreator.Activities.Design", "WpfFormCreator\UiPathTeam.WpfFormCreator.Activities.Design\UiPathTeam.WpfFormCreator.Activities.Design.csproj", "{23124E19-B8FE-454B-AABD-F42E32D97B83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F1AC216-E8BB-4880-A5B0-305DCA997B4F} = {6F1AC216-E8BB-4880-A5B0-305DCA997B4F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.WpfFormCreator", "WpfFormCreator\UiPathTeam.WpfFormCreator\UiPathTeam.WpfFormCreator.csproj", "{C7F4915C-C276-4B05-A463-ABCA8EF3B06A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.WpfFormCreator.Activities", "WpfFormCreator\UiPathTeam.WpfFormCreator.Activities\UiPathTeam.WpfFormCreator.Activities.csproj", "{6F1AC216-E8BB-4880-A5B0-305DCA997B4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C7F4915C-C276-4B05-A463-ABCA8EF3B06A} = {C7F4915C-C276-4B05-A463-ABCA8EF3B06A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

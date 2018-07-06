@@ -7,7 +7,7 @@
     <StackPanel>
 
         <ComboBox Name="test123" Margin="20">
-            <ComboBoxItem Name="aaa" >ComboBox Item #1</ComboBoxItem>
+            <ComboBoxItem Name="aaa">ComboBox Item #1</ComboBoxItem>
             <ComboBoxItem Name="ComboBox2" >ComboBox Item #2</ComboBoxItem>
             <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
         </ComboBox>
