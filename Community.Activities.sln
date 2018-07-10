@@ -67,6 +67,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XLExcel.Activities.UnitTest", "XLExcel.Activities.UnitTest\XLExcel.Activities.UnitTest.csproj", "{59024496-398C-4168-8F71-7A7206780F06}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WpfFormCreator", "WpfFormCreator", "{4881A76D-EDF8-4B65-9E22-8A5480900D4B}"
+	ProjectSection(SolutionItems) = preProject
+		WpfFormCreator\XamlFormCreator.doc = WpfFormCreator\XamlFormCreator.doc
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiPathTeam.WPFFormCreator.TestProject", "WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\UiPathTeam.WPFFormCreator.TestProject.csproj", "{DB4AE5B3-2417-455C-B094-480845995BF6}"
 EndProject
