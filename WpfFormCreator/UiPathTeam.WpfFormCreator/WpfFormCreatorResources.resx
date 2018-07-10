@@ -138,4 +138,7 @@
   <data name="ErrorMessage_NoInputGiven" xml:space="preserve">
     <value>If GetAllProperties is unchecked, the Inputs dictionary cannot be empty</value>
   </data>
+  <data name="ErrorMessage_ValueTypeInvalid" xml:space="preserve">
+    <value>For element {0},the type of property {1} is invalid. Inner Exception: {2}</value>
+  </data>
 </root>

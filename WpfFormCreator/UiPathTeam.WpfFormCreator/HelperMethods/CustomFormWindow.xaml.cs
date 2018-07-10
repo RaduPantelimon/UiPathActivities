@@ -17,6 +17,7 @@ using System.Xml.Linq;
 using System.Xml;
 using System.IO;
 
+using Xceed.Wpf.Toolkit;
 
 using UiPathTeam.WpfFormCreator.HelperMethods;
 using System.Windows.Markup;
@@ -75,7 +76,7 @@ namespace UiPathTeam.WpfFormCreator
         public CustomFormWindow(ExecutionContext executionContext)
         {
             InitializeComponent();
-
+            this.Activate();
             //load additional resources provided by the user
             if (executionContext.MainDictionary != null) this.Resources.MergedDictionaries.Add(executionContext.MainDictionary);
 
@@ -129,7 +130,7 @@ namespace UiPathTeam.WpfFormCreator
                 //get element from DOM
                 MethodInfo method = typeof(FormsCreator).GetMethod("FindChild");
                 dynamic result = method.Invoke(this, new object[] { StackPanel, elementValuesPair.Key });
-                if (result == null) throw new Exception("WPF control with name: " + elementValuesPair.Key + " was not found. Check the input dinctionary Values");
+                if (result == null) throw new Exception("WPF control with name: " + elementValuesPair.Key + " was not found. Check the input dictionary Values");
 
                 //set all properties for the current control
                 foreach(KeyValuePair<string, object> nameValuePair in elementValuesPair.Value)
@@ -148,7 +149,7 @@ namespace UiPathTeam.WpfFormCreator
             if(ControlsToSave!=null && ControlsToSave.Length > 0)
             {
                 //scrape the Controls from the ControlsToSave name array
-                List<Control> controlsToParseForOutput = FormsCreator.FindChildren(StackPanel, ControlsToSave);
+                List<FrameworkElement> controlsToParseForOutput = FormsCreator.FindChildren(StackPanel, ControlsToSave);
                 Results = FormsCreator.GetDataFromWPFWindow(controlsToParseForOutput.ToArray(), SaveEverything, null);
             }
             else
@@ -158,7 +159,7 @@ namespace UiPathTeam.WpfFormCreator
                 string[] elementNames;
                 //get the element names from the input dictionary
                 elementNames = Inputs.Select(x => x.Key).ToArray();
-                List<Control> controlsToParseForOutput = FormsCreator.FindChildren(StackPanel, elementNames);
+                List<FrameworkElement> controlsToParseForOutput = FormsCreator.FindChildren(StackPanel, elementNames);
                 //scrape results
                 Results = FormsCreator.GetDataFromWPFWindow(controlsToParseForOutput.ToArray(), SaveEverything, Inputs);
             }
@@ -168,11 +169,13 @@ namespace UiPathTeam.WpfFormCreator
             Window.GetWindow(this).Close();
         }
 
+        //override 
 
         //make window the topmost when initialized
         private void Window_Initialized(object sender, EventArgs e)
         {
-            this.Topmost = true;
+            this.Focus();
+
         }
     }
 }

@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Output\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -97,6 +97,11 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)
+if $(ConfigurationName) == Release "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

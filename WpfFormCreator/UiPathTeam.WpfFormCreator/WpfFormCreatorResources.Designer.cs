@@ -122,5 +122,14 @@ namespace UiPathTeam.WpfFormCreator {
                 return ResourceManager.GetString("ErrorMessage_NoInputGiven", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For element {0},the type of property {1} is invalid. Inner Exception: {2}.
+        /// </summary>
+        public static string ErrorMessage_ValueTypeInvalid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_ValueTypeInvalid", resourceCulture);
+            }
+        }
     }
 }

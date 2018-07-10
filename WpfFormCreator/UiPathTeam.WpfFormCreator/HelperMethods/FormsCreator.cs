@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 using System.Xml.Linq;
 using System.Xml;
 using System.IO;
-
+using Xceed.Wpf.Toolkit;
 
 using UiPathTeam.WpfFormCreator.HelperMethods;
 using System.Windows.Markup;
@@ -48,7 +48,11 @@ namespace UiPathTeam.WpfFormCreator
                                  getAllElements);
 
             CustomFormWindow customWindow = new CustomFormWindow(executionContext);
+            //customWindow.Activate();
             customWindow.ShowDialog();
+
+            //Application app = new Application();
+            //app.Run(customWindow);
 
             Dictionary<string, Dictionary<string, object>> Results = customWindow.Results;
 
@@ -88,9 +92,12 @@ namespace UiPathTeam.WpfFormCreator
 
                 //converting the node to string so we convert it to wpf elem
                 Stream s = Utils.GenerateStreamFromString(mainAppElem.ToString());
+                DateTimePicker dtp = new DateTimePicker();
+                dtp.Value = DateTime.Now;
 
                 // Load WPF Grid with XamlReader
                 System.Windows.Controls.Grid mainGrid = null;
+
                 mainGrid = (System.Windows.Controls.Grid)XamlReader.Load(s);
                 return mainGrid;
             }
@@ -103,19 +110,33 @@ namespace UiPathTeam.WpfFormCreator
             
         }
 
-        public static Control FindChild(DependencyObject parent, string childName)
+        public static FrameworkElement FindChild(DependencyObject parent, string childName)
         {
             // Confirm parent and childName are valid.   
             if (parent == null) return null;
 
-            Control foundChild = null;
+            FrameworkElement foundChild = null;
 
             int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (int i = 0; i < childrenCount; i++)
             {
                 var child = VisualTreeHelper.GetChild(parent, i);
-                Control childAsControl = child as Control;
+                var frameworkElement = child as FrameworkElement;
+                // If the child's name is set for search  
+                if (frameworkElement != null && (frameworkElement.Name == childName))
+                {
+                    // if the child's name is of the request name  
+                    foundChild = frameworkElement;
+                    break;
+                }
+                else
+                {
+                    foundChild = FindChild(child, childName);
+                    if (foundChild != null) break;
+                }
 
+               
+                Control childAsControl = child as Control;
                 //child
                 if (childAsControl == null)
                 {
@@ -125,46 +146,26 @@ namespace UiPathTeam.WpfFormCreator
                     // If the child is found, break so we do not overwrite the found child.   
                     if (foundChild != null) break;
                 }
-                else if (!string.IsNullOrEmpty(childName))
-                {
-                    var frameworkElement = child as FrameworkElement;
-                    // If the child's name is set for search  
-                    if (frameworkElement != null && frameworkElement.Name == childName)
-                    {
-                        // if the child's name is of the request name  
-                        foundChild = (Control)child;
-                        break;
-                    }
-                    else
-                    {
-                        foundChild = FindChild(child, childName);
-                        //break;
-                    }
-                }
-                else
-                {
-                    // child element found.  
-                    foundChild = (Control)child;
-                    break;
-                }
+
+              
             }
 
             return foundChild; 
         }
 
 
-        public static List<Control> FindChildren(DependencyObject parent, string[] childrenNames/*, bool saveEverything = false*/)
+        public static List<FrameworkElement> FindChildren(DependencyObject parent, string[] childrenNames/*, bool saveEverything = false*/)
         {
             // Confirm parent and childName are valid.   
             if (parent == null) return null;
 
-            List<Control> foundChildren = new List<Control>();
+            List<FrameworkElement> foundChildren = new List<FrameworkElement>();
 
             int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
             for (int i = 0; i < childrenCount; i++)
             {
                 var child = VisualTreeHelper.GetChild(parent, i);
-                Control childAsControl = child as Control;
+                FrameworkElement childAsControl = child as FrameworkElement;
 
                 var frameworkElement = child as FrameworkElement;
                 // If the child's name is set for search  
@@ -184,42 +185,51 @@ namespace UiPathTeam.WpfFormCreator
             return foundChildren;
         }
 
-        public static void SetValueForProperty(Control WPFControl, string propertyName, object propertyValue)
+        public static void SetValueForProperty(FrameworkElement WPFFrameworkElement, string propertyName, object propertyValue)
         {
             //get property name
-            PropertyInfo propertyInfo = WPFControl.GetType().GetProperty(propertyName);
+            PropertyInfo propertyInfo = WPFFrameworkElement.GetType().GetProperty(propertyName);
             //set value
-            propertyInfo.SetValue(WPFControl, ChangeType(propertyValue, propertyInfo.PropertyType), null);
+            try
+            {
+                propertyInfo.SetValue(WPFFrameworkElement, propertyValue /*ChangeType(propertyValue, propertyInfo.PropertyType)*/, null);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(String.Format(WpfFormCreatorResources.ErrorMessage_ValueTypeInvalid, WPFFrameworkElement.Name, propertyName,
+                   ex.ToString()));
+            }
+           
         }
 
-        public static object GetValueForProperty(Control WPFControl, string propertyName)
+        public static object GetValueForProperty(FrameworkElement WPFControl, string propertyName)
         {
             return WPFControl.GetType().GetProperty(propertyName).GetValue(WPFControl, null);
         }
 
 
         public static Dictionary<string, Dictionary<string, object>> GetDataFromWPFWindow(
-            Control[] controlsToParseForOutput, 
+            FrameworkElement[] controlsToParseForOutput, 
             bool GetAllData = false,
             Dictionary<string, Dictionary<string, object>> Inputs = null)
         {
             Dictionary<string, Dictionary<string, object>> Results = new Dictionary<string, Dictionary<string, object>>();
 
             //loop through the Elements in the dictionary
-            foreach (Control currentControl in controlsToParseForOutput)
+            foreach (FrameworkElement currentFrameworkElement in controlsToParseForOutput)
             {
                 if(!GetAllData)
                 {
                     //get the properties mapped in the Input Dictionary for the current Control 
-                    KeyValuePair<string, Dictionary<string, object>> elementValuesPair = Inputs.Where(x => x.Key == currentControl.Name).FirstOrDefault();
-                    Dictionary<string, object> resultsForControl = FormsCreator.GetPropertiesFromControl(currentControl, elementValuesPair.Value);
+                    KeyValuePair<string, Dictionary<string, object>> elementValuesPair = Inputs.Where(x => x.Key == currentFrameworkElement.Name).FirstOrDefault();
+                    Dictionary<string, object> resultsForControl = FormsCreator.GetPropertiesFromControl(currentFrameworkElement, elementValuesPair.Value);
                     Results.Add(elementValuesPair.Key, resultsForControl);
                 }
                 else
                 {
                     //get all non-null properties from the Control
-                    Dictionary<string, object> resultsForControl = FormsCreator.GetAllPropertiesFromControl(currentControl);
-                    Results.Add(currentControl.Name, resultsForControl);
+                    Dictionary<string, object> resultsForControl = FormsCreator.GetAllPropertiesFromControl(currentFrameworkElement);
+                    Results.Add(currentFrameworkElement.Name, resultsForControl);
                 }
                 
 
@@ -228,15 +238,15 @@ namespace UiPathTeam.WpfFormCreator
             return Results;
         }
 
-        public static Dictionary<string, object> GetAllPropertiesFromControl(Control currentControl)
+        public static Dictionary<string, object> GetAllPropertiesFromControl(FrameworkElement currentFrameWorkElement)
         {
             Dictionary<string, object> resultsForControl = new Dictionary<string, object>();
 
             //loop through all properties and if the value is not null, we store it in the dictionary
-            foreach (PropertyInfo pi in currentControl.GetType().GetProperties())
+            foreach (PropertyInfo pi in currentFrameWorkElement.GetType().GetProperties())
             {
                
-                    object value = pi.GetValue(currentControl);
+                    object value = pi.GetValue(currentFrameWorkElement);
                     if (value != null && !String.IsNullOrEmpty(value.ToString()) )
                     {
                         resultsForControl.Add(pi.Name, value);
@@ -246,7 +256,7 @@ namespace UiPathTeam.WpfFormCreator
             return resultsForControl;
         }
 
-       public static Dictionary<string,object> GetPropertiesFromControl(Control currentControl, Dictionary<string,object> propertiesToGet)
+       public static Dictionary<string,object> GetPropertiesFromControl(FrameworkElement currentFrameworkElement, Dictionary<string,object> propertiesToGet)
        {
             //loop through all properties in the input dictionary and create an output dictionary
             Dictionary<string, object> resultsForControl = new Dictionary<string, object>();
@@ -254,7 +264,7 @@ namespace UiPathTeam.WpfFormCreator
             foreach (KeyValuePair<string, object> nameValuePair in propertiesToGet)
             {
                 //get value and add it to the dictionary
-                object valueObtained = FormsCreator.GetValueForProperty(currentControl, nameValuePair.Key);
+                object valueObtained = FormsCreator.GetValueForProperty(currentFrameworkElement, nameValuePair.Key);
                 resultsForControl.Add(nameValuePair.Key, valueObtained);
             }
 

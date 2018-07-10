@@ -20,6 +20,7 @@ using System.Xml;
 using UiPathTeam.WpfFormCreator;
 using System.Activities.XamlIntegration;
 using System.Activities;
+using System.Windows.Media.Imaging;
 
 namespace UiPath.Team.WPFFormCreator.TestProject
 {
@@ -31,8 +32,8 @@ namespace UiPath.Team.WPFFormCreator.TestProject
         [STAThread]
         static void Main()
         {
-            //LogicTest();
-            TestWorkflow();
+            LogicTest();
+            //TestWorkflow();
 
 
         }
@@ -83,16 +84,32 @@ namespace UiPath.Team.WPFFormCreator.TestProject
 
             };
 
+            Dictionary<string, Dictionary<string, object>> input2 = new Dictionary<string, Dictionary<string, object>> {
+                //{ "ComboBox2", new Dictionary<string, object>{ { "IsSelected", true } } },
+                 { "employee", new Dictionary<string, object>{ { "Source", new BitmapImage(new Uri("C:\\UiPath\\CustomActivities\\Community.Activities\\WpfFormCreator\\UiPath.Team.WPFFormCreator.TestProject\\TestFiles\\albertcamus.jpg", UriKind.Absolute)) } } },
+                 { "hireDate", new Dictionary<string, object>{ { "Value", DateTime.Now} } },
+                { "firstName", new Dictionary<string, object>{ { "Text", "Albert" } } }
+
+            };
+
             Dictionary<string, Dictionary<string, object>> Results;
+            Results =
+              FormsCreator.LaunchForm(
+              //"TestFiles\\ParentForm_6.xaml",
+              "C:\\Users\\raduBucur\\Documents\\UiPath\\testWPFFormCreator\\Example2\\TestFiles\\ParentForm_6.xml",
+              "HelperFiles\\DemoDictionary.xaml",
+              "submitButton", "Click",
+              input2,
+              false);
 
-           Results =
-               FormsCreator.LaunchForm(
-               "HelperFiles\\ParentForm.xaml",
-               "HelperFiles\\DemoDictionary.xaml",
-               "tatae", "Click",
-               input,
+            /*Results =
+                FormsCreator.LaunchForm(
+                "TestFiles\\ParentForm.xaml",
+                "HelperFiles\\DemoDictionary.xaml",
+                "tatae", "Click",
+                input,
 
-               true);
+                true);*/
 
 
             /*Results =

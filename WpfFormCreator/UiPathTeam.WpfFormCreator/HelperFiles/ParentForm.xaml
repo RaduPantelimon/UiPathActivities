@@ -14,7 +14,7 @@
             <ComboBoxItem Content="2012" />
         </ComboBox>
 
-        <TextBlock Text="What's your name?"/>
+        <TextBlock Text="What's your name2?"/>
         <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
 
             <TextBox x:Name="nameInput"
@@ -58,5 +58,9 @@
         VerticalScrollBarVisibility="Visible"
          Width="300" HorizontalAlignment="Left" Margin="20"/>
 
+        <xctk:DateTimePicker x:Name="dtpStartTime"  
+                     Format="Custom" 
+                     FormatString="HH:mm tt" 
+                     Margin="5"/>
     </StackPanel>
  </Grid>
