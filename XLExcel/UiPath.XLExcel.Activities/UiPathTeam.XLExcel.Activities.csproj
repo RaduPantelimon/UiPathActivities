@@ -59,7 +59,6 @@
     <Compile Include="..\XLExcelAssemblyInfo.cs">
       <Link>Properties\XLExcelAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ConvertXLSToXLSX.cs" />
     <Compile Include="ExcelSheetExtensionCodeActivity.cs" />
     <Compile Include="GetNumberOfRows.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

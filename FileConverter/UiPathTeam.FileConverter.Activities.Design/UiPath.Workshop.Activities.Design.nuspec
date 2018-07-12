@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$title$</id>
+    <version>$version$</version>
+    <title>WPF Form Creator</title>
+    <authors>Radu Bucur</authors>
+    <owners>Radu Bucur</owners>
+    <projectUrl>https://github.com/RaduPantelimon/UiPathActivities</projectUrl>
+    <iconUrl>https://gallery.uipath.com/images?url=http://www.uipath.com/hubfs/Logos/uipath-nuget-logo.png</iconUrl>
+    <language></language>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <summary>Package designed to create and use highly customizable forms using UiPath Studio.</summary>
+    <releaseNotes> First Published Version of the Package</releaseNotes>
+    <tags>WPF, Forms, Creator, XAML</tags>
+  </metadata>
+</package>
+
+
+

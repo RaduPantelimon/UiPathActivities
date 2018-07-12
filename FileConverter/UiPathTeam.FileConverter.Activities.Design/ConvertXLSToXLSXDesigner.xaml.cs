@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UiPathTeam.XLExcel.Activities.Design
+namespace UiPathTeam.FileConverter.Activities.Design
 {
     // Interaction logic for ConvertXLSToXLSX.xaml
     public partial class ConvertXLSToXLSXDesigner

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F93E197-CB43-4258-BE6F-78344CBEB9F1}</ProjectGuid>
+    <ProjectGuid>{0F7952AB-591A-4630-99B5-5F863C3507FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UiPathTeam.XLExcel.Activities.Design</RootNamespace>
-    <AssemblyName>UiPathTeam.XLExcel.Activities.Design</AssemblyName>
+    <RootNamespace>UiPathTeam.FileConverter.Activities.Design</RootNamespace>
+    <AssemblyName>UiPathTeam.FileConverter.Activities.Design</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,12 +20,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Output\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,40 +52,32 @@
     <Compile Include="..\..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\XLExcelAssemblyInfo.cs">
-      <Link>Properties\XLExcelAssemblyInfo.cs</Link>
+    <Compile Include="..\FileConverterAssemblyInfo.cs">
+      <Link>Properties\FileConverterAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ConvertXLSToXLSXDesigner.xaml.cs">
+      <DependentUpon>ConvertXLSToXLSXDesigner.xaml</DependentUpon>
     </Compile>
     <Compile Include="DesignerMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadRangeDesigner.xaml.cs">
-      <DependentUpon>ReadRangeDesigner.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="XLExcelApplicationScopeDesigner.xaml.cs">
-      <DependentUpon>XLExcelApplicationScopeDesigner.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="UiPath.Workshop.Activities.Design.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ReadRangeDesigner.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="XLExcelApplicationScopeDesigner.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <ProjectReference Include="..\UiPathTeam.FileConverter.Activities\UiPathTeam.FileConverter.Activities.csproj">
+      <Project>{693bc883-cb76-4de6-833e-d2b29d824998}</Project>
+      <Name>UiPathTeam.FileConverter.Activities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UiPath.XLExcel.Activities\UiPathTeam.XLExcel.Activities.csproj">
-      <Project>{73de30a9-4ba0-4748-a06e-0b64810448b0}</Project>
-      <Name>UiPathTeam.XLExcel.Activities</Name>
-    </ProjectReference>
+    <Page Include="ConvertXLSToXLSXDesigner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)
-if $(ConfigurationName) == Release "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
 </Project>

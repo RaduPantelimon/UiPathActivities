@@ -8,9 +8,9 @@ using System.ComponentModel;
 using System.Data;
 
 
-namespace UiPathTeam.XLExcel.Activities
+namespace UiPathTeam.FileConverter.Activities
 {
-    /*class ConvertXLSToXLSX:CodeActivity
+    public class ConvertXLSToXLSX:CodeActivity
     {
 
         [Category("Input")]
@@ -43,5 +43,5 @@ namespace UiPathTeam.XLExcel.Activities
             string resultingFilePath = Utils.ConvertToXLSX(oldFilePath, newFileName, directoryToSave);
             ResultingFilePath.Set(context, resultingFilePath);
         }
-    }*/
+    }
 }

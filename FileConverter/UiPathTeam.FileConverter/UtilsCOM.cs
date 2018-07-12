@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UiPathTeam.XLExcel
+namespace UiPathTeam.FileConverter
 {
     public static partial class Utils
     {
