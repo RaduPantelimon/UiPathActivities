@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F7952AB-591A-4630-99B5-5F863C3507FF}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{47C7CC5D-5BC2-492B-A6AB-129147DB5AF2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UiPathTeam.FileConverter.Activities.Design</RootNamespace>
-    <AssemblyName>UiPathTeam.FileConverter.Activities.Design</AssemblyName>
+    <RootNamespace>UiPathTeam.FileConverter.TestProject</RootNamespace>
+    <AssemblyName>UiPathTeam.FileConverter.TestProject</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,9 +24,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Output\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,7 +41,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activities" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,39 +51,43 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\GlobalAssemblyInfo.cs">
-      <Link>Properties\GlobalAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\FileConverterAssemblyInfo.cs">
-      <Link>Properties\FileConverterAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="ConvertXLSToXLSXDesigner.xaml.cs">
-      <DependentUpon>ConvertXLSToXLSXDesigner.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DesignerMetadata.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="UiPath.Workshop.Activities.Design.nuspec" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UiPathTeam.FileConverter.Activities\UiPathTeam.FileConverter.Activities.csproj">
-      <Project>{693bc883-cb76-4de6-833e-d2b29d824998}</Project>
+    <ProjectReference Include="..\FileConverter\UiPathTeam.FileConverter.Activities.Design\UiPathTeam.FileConverter.Activities.Design.csproj">
+      <Project>{0f7952ab-591a-4630-99b5-5f863c3507ff}</Project>
+      <Name>UiPathTeam.FileConverter.Activities.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileConverter\UiPathTeam.FileConverter.Activities\UiPathTeam.FileConverter.Activities.csproj">
+      <Project>{693BC883-CB76-4DE6-833E-D2B29D824998}</Project>
       <Name>UiPathTeam.FileConverter.Activities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UiPathTeam.FileConverter\UiPathTeam.FileConverter.csproj">
+    <ProjectReference Include="..\FileConverter\UiPathTeam.FileConverter\UiPathTeam.FileConverter.csproj">
       <Project>{0b0a1d3e-201b-4b10-8b85-94648bb4dee6}</Project>
       <Name>UiPathTeam.FileConverter</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ConvertXLSToXLSXDesigner.xaml">
+    <XamlAppDef Include="FileConverterTest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </XamlAppDef>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Debug "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)
+if $(ConfigurationName) == Release "$(SolutionDir).nuget\NuGet.exe" pack "$(ProjectPath)"  -IncludeReferencedProjects -Prop Configuration=$(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

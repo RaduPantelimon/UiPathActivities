@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using UiPathTeam.FileConverter;
 
 namespace UiPathTeam.FileConverter.Activities.Design
 {
@@ -29,35 +31,39 @@ namespace UiPathTeam.FileConverter.Activities.Design
 
         private void Button_Click_SelectFile(object sender, RoutedEventArgs e)
         {
-
+            //selecting the file to convert
             Microsoft.Win32.OpenFileDialog _openFileDialog = new Microsoft.Win32.OpenFileDialog();
             _openFileDialog.Title = "Open XLS File";
             _openFileDialog.Filter = "Excel Files|*.xls";
-            _openFileDialog.InitialDirectory = @"C:\";
+            _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+
 
             if (_openFileDialog.ShowDialog() == true)
             {
                 ModelProperty property = this.ModelItem.Properties["OldFilePath"];
-                //property
-                property.SetValue(new InArgument<string>(_openFileDialog.FileName));
+                //if the selected folder is inside the current directory, we will trim the start of the name
+                property.SetValue(new InArgument<string>(Utils.TrimFilePath(_openFileDialog.FileName, Directory.GetCurrentDirectory())));
 
             }
         }
 
 
+
+       
+
         private void Button_Click_SelectFolder(object sender, RoutedEventArgs e)
         {
-
+            //selecting the directory in which to save the converted file
             using (var fbd = new FolderBrowserDialog())
             {
-               
+                fbd.SelectedPath = Directory.GetCurrentDirectory();
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     ModelProperty property = this.ModelItem.Properties["DirectoryToSave"];
-                    //property
-                    property.SetValue(new InArgument<string>(fbd.SelectedPath));
+                    //if the selected folder is inside the current directory, we will trim the start of the name
+                    property.SetValue(new InArgument<string>(Utils.TrimFilePath(fbd.SelectedPath, Directory.GetCurrentDirectory())));
                 }
             }
         }

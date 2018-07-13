@@ -20,6 +20,7 @@ namespace UiPathTeam.FileConverter.Activities
 
         [Category("Input")]
         [DisplayName("New File Name")]
+        [RequiredArgument]
         public InArgument<string> NewFileName { get; set; }
 
         [Category("Input")]

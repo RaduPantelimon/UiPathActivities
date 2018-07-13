@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UiPath.Workshop.Activities")]
-[assembly: AssemblyDescription("UiPath.Workshop.Activities")]
+[assembly: AssemblyTitle("UiPathTeam.FileConverter.Activities")]
+[assembly: AssemblyDescription("UiPathTeam.FileConverter.Activities")]
 [assembly: AssemblyConfiguration("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

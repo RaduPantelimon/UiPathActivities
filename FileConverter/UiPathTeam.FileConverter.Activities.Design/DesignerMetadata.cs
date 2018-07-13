@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace UiPathTeam.FileConverter.Activities.Design
 {
-    class DesignerMetadata : IRegisterMetadata
+    public class DesignerMetadata : IRegisterMetadata
     {
         public void Register()
         {

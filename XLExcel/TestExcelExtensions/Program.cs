@@ -38,10 +38,10 @@ namespace TestExcelExtensions
         static void TestFileConversion()
         {
 
-            string newFilePath = Utils.ConvertToXLSX("C:\\UiPath\\P0120180117_034752.xls", "Temp2", "C:\\UiPath");
+            //string newFilePath = Utils.ConvertToXLSX("C:\\UiPath\\P0120180117_034752.xls", "Temp2", "C:\\UiPath");
 
-            Console.WriteLine(newFilePath);
-            Console.ReadLine();
+           // Console.WriteLine(newFilePath);
+           // Console.ReadLine();
         }
 
         static void TestReadRangeBasic()
