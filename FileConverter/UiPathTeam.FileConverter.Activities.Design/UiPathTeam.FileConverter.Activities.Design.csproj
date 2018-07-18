@@ -55,8 +55,8 @@
     <Compile Include="..\FileConverterAssemblyInfo.cs">
       <Link>Properties\FileConverterAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ConvertXLSToXLSXDesigner.xaml.cs">
-      <DependentUpon>ConvertXLSToXLSXDesigner.xaml</DependentUpon>
+    <Compile Include="ConvertFileDesigner.xaml.cs">
+      <DependentUpon>ConvertFileDesigner.xaml</DependentUpon>
     </Compile>
     <Compile Include="DesignerMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,7 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ConvertXLSToXLSXDesigner.xaml">
+    <Page Include="ConvertFileDesigner.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

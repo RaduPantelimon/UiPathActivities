@@ -8,13 +8,16 @@ using System.ComponentModel;
 using System.Data;
 
 
+using Word = Microsoft.Office.Interop.Word;
+
 namespace UiPathTeam.FileConverter.Activities
 {
-    public class ConvertXLSToXLSX:ConversionActivityBaseClass
+    public class ConvertDOCXToDOC : ConversionActivityBaseClass
     {
-        public ConvertXLSToXLSX()
+
+        public ConvertDOCXToDOC()
         {
-            FileExtensionPath = FileTypes.NewExcel;
+            FileExtensionPath = FileTypes.OldWord;
         }
 
         protected override void Execute(CodeActivityContext context)
@@ -25,8 +28,8 @@ namespace UiPathTeam.FileConverter.Activities
             string directoryToSave = DirectoryToSave.Get(context);
 
             //convert and set result
-            string resultingFilePath = Utils.ConvertExcel(oldFilePath, newFileName, directoryToSave, FileTypes.NewExcel, 
-                Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook);
+            string resultingFilePath = Utils.ConvertWord(oldFilePath, newFileName, directoryToSave, FileTypes.OldWord,
+                Word.WdSaveFormat.wdFormatDocument);
             ResultingFilePath.Set(context, resultingFilePath);
         }
     }

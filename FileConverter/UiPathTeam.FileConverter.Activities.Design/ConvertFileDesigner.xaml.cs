@@ -21,9 +21,9 @@ using UiPathTeam.FileConverter;
 namespace UiPathTeam.FileConverter.Activities.Design
 {
     // Interaction logic for ConvertXLSToXLSX.xaml
-    public partial class ConvertXLSToXLSXDesigner
+    public partial class ConvertFileDesigner
     {
-        public ConvertXLSToXLSXDesigner()
+        public ConvertFileDesigner()
         {
             InitializeComponent();
         }

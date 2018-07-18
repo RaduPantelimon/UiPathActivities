@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace UiPathTeam.FileConverter
 {
@@ -13,19 +14,20 @@ namespace UiPathTeam.FileConverter
     {
 
         //convert existing xls document to xlsx and returns path to file
-        public static string ConvertToXLSX(string xlsFilePathRaw, string newFileName, string directoryToSaveRaw)
+        public static string ConvertExcel(string FilePathRaw, string NewFileName, string DirectoryToSave,
+           string NewFileExtension, Excel.XlFileFormat NewFileFormat)
         {
             
 
             //calculate file name with exxtension
-            if (!newFileName.EndsWith(".xlsx")) newFileName = newFileName + ".xlsx";
+            if (!NewFileName.EndsWith(NewFileExtension)) NewFileName = NewFileName + NewFileExtension;
 
             //get absolute filePaths for both the new directory and the old file path
-            string directoryToSave = String.IsNullOrEmpty(directoryToSaveRaw)? Directory.GetCurrentDirectory():Path.GetFullPath(directoryToSaveRaw);
-            string xlsFilePath = Path.GetFullPath(xlsFilePathRaw);
+            string directoryToSave = String.IsNullOrEmpty(DirectoryToSave)? Directory.GetCurrentDirectory():Path.GetFullPath(DirectoryToSave);
+            string xlsFilePath = Path.GetFullPath(FilePathRaw);
 
             //calculate new File Path
-            string newFilePath = Path.Combine(directoryToSave,newFileName);
+            string newFilePath = Path.Combine(directoryToSave,NewFileName);
 
 
             //perform conversion
@@ -33,28 +35,41 @@ namespace UiPathTeam.FileConverter
             excelApp.Visible = false;
             excelApp.DisplayAlerts = false;
             Microsoft.Office.Interop.Excel.Workbook eWorkbook = excelApp.Workbooks.Open(xlsFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            eWorkbook.SaveAs(newFilePath, Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook, Type.Missing, Type.Missing, Type.Missing, Type.Missing, 
+
+            eWorkbook.SaveAs(newFilePath, NewFileFormat, //Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, 
                 Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing,
             Type.Missing, Type.Missing);
+
+
+
             eWorkbook.Close(false, Type.Missing, Type.Missing);
+            excelApp.Quit();
+            GC.Collect();
+            /* Excel.Workbook openWorkBook = null;
+
+             Excel.Application activeExcel = new Excel.Application();
+             openWorkBook = activeExcel.Workbooks.Open(FilePathRaw);
+             openWorkBook.SaveAs(newFilePath, Microsoft.Office.Interop.Excel.XlFileFormat.xlExcel8);*/
 
 
             return newFilePath;
         }
 
 
-        public static string ConvertToDOCX(string docFilePathRaw, string newFileName, string directoryToSaveRaw)
+        public static string ConvertWord(string DocFilePathRaw, string NewFileName, string DirectoryToSaveRaw,
+           string NewFileExtension, Word.WdSaveFormat NewFileFormat)
         {
 
             //calculate file name with exxtension
-            if (!newFileName.EndsWith(".docx")) newFileName = newFileName + ".docx";
+            if (!NewFileName.EndsWith(NewFileExtension)) NewFileName = NewFileName + NewFileExtension;
 
             //get absolute filePaths for both the new directory and the old file path
-            string directoryToSave = String.IsNullOrEmpty(directoryToSaveRaw) ? Directory.GetCurrentDirectory() : Path.GetFullPath(directoryToSaveRaw);
-            string docFilePath = Path.GetFullPath(docFilePathRaw);
+            string directoryToSave = String.IsNullOrEmpty(DirectoryToSaveRaw) ? Directory.GetCurrentDirectory() : Path.GetFullPath(DirectoryToSaveRaw);
+            string docFilePath = Path.GetFullPath(DocFilePathRaw);
 
             //calculate new File Path
-            string newFilePath = Path.Combine(directoryToSave, newFileName);
+            string newFilePath = Path.Combine(directoryToSave, NewFileName);
 
             // Open the Word Application.
             Word._Application word_app = new Word.Application();
@@ -71,19 +86,21 @@ namespace UiPathTeam.FileConverter
             //open the document
             Word._Document word_doc = word_app.Documents.Open(docFilePath,confirm_conversions,  read_only,add_to_recent_files, Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Word.WdSaveFormat.wdFormatDocument, Type.Missing,
-                Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Type.Missing);
-
-            word_doc.SaveAs(newFilePath, Word.WdSaveFormat.wdFormatDocumentDefault,
-                Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing);
 
-            // Close the document without prompting.
+            word_doc.SaveAs(newFilePath, NewFileFormat,
+                Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing);
+
+            //Close the document and the App
             word_doc.Close(save_changes, Type.Missing, Type.Missing);
+            word_app.Quit();
+            GC.Collect();
 
             return newFilePath;
         }
