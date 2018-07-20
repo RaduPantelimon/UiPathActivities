@@ -10,7 +10,7 @@ using System.Data;
 
 namespace UiPathTeam.FileConverter.Activities
 {
-    public class ConversionActivityBaseClass:CodeActivity
+    public abstract class ConversionActivityBaseClass:CodeActivity
     {
         [Category("Input")]
         [DisplayName("XLS FilePath")]
@@ -35,6 +35,9 @@ namespace UiPathTeam.FileConverter.Activities
         public OutArgument<string> ResultingFilePath { get; set; }
 
         public string FileExtensionPath { get; set; }
+        public string OldFileExtension { get; set; }
+
+        //public static string WildCard = "*";
 
         protected override void Execute(CodeActivityContext context)
         {

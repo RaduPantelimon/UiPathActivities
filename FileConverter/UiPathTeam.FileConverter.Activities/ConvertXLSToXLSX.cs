@@ -10,11 +10,13 @@ using System.Data;
 
 namespace UiPathTeam.FileConverter.Activities
 {
-    public class ConvertXLSToXLSX:ConversionActivityBaseClass
+    [DisplayName("Convert XLS To XLSX")]
+    public class ConvertXLSToXLSX : ConversionActivityBaseClass
     {
         public ConvertXLSToXLSX()
         {
-            FileExtensionPath = FileTypes.NewExcel;
+            FileExtensionPath = "." + FileTypes.NewExcel;
+            OldFileExtension = "Excel Files|*" + FileTypes.OldExcel;
         }
 
         protected override void Execute(CodeActivityContext context)

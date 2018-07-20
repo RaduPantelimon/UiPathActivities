@@ -33,8 +33,8 @@ namespace UiPathTeam.FileConverter.Activities.Design
         {
             //selecting the file to convert
             Microsoft.Win32.OpenFileDialog _openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            _openFileDialog.Title = "Open XLS File";
-            _openFileDialog.Filter = "Excel Files|*.xls";
+            _openFileDialog.Title = "Select File";
+            _openFileDialog.Filter = this.ModelItem.Properties["OldFileExtension"].ComputedValue.ToString();
             _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
 

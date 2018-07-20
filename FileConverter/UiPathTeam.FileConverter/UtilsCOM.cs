@@ -20,7 +20,7 @@ namespace UiPathTeam.FileConverter
             
 
             //calculate file name with exxtension
-            if (!NewFileName.EndsWith(NewFileExtension)) NewFileName = NewFileName + NewFileExtension;
+            if (!NewFileName.EndsWith("." + NewFileExtension)) NewFileName = NewFileName + "." + NewFileExtension;
 
             //get absolute filePaths for both the new directory and the old file path
             string directoryToSave = String.IsNullOrEmpty(DirectoryToSave)? Directory.GetCurrentDirectory():Path.GetFullPath(DirectoryToSave);
@@ -62,7 +62,7 @@ namespace UiPathTeam.FileConverter
         {
 
             //calculate file name with exxtension
-            if (!NewFileName.EndsWith(NewFileExtension)) NewFileName = NewFileName + NewFileExtension;
+            if (!NewFileName.EndsWith("." + NewFileExtension)) NewFileName = NewFileName + "." + NewFileExtension;
 
             //get absolute filePaths for both the new directory and the old file path
             string directoryToSave = String.IsNullOrEmpty(DirectoryToSaveRaw) ? Directory.GetCurrentDirectory() : Path.GetFullPath(DirectoryToSaveRaw);

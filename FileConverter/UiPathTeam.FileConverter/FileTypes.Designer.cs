@@ -61,7 +61,7 @@ namespace UiPathTeam.FileConverter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .xlsx.
+        ///   Looks up a localized string similar to xlsx.
         /// </summary>
         public static string NewExcel {
             get {
@@ -70,7 +70,7 @@ namespace UiPathTeam.FileConverter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .docx.
+        ///   Looks up a localized string similar to docx.
         /// </summary>
         public static string NewWord {
             get {
@@ -79,7 +79,7 @@ namespace UiPathTeam.FileConverter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .xls.
+        ///   Looks up a localized string similar to xls.
         /// </summary>
         public static string OldExcel {
             get {
@@ -88,7 +88,7 @@ namespace UiPathTeam.FileConverter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .doc.
+        ///   Looks up a localized string similar to doc.
         /// </summary>
         public static string OldWord {
             get {
@@ -97,11 +97,11 @@ namespace UiPathTeam.FileConverter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .pdf.
+        ///   Looks up a localized string similar to pdf.
         /// </summary>
-        public static string PFDExtension {
+        public static string PDFExtension {
             get {
-                return ResourceManager.GetString("PFDExtension", resourceCulture);
+                return ResourceManager.GetString("PDFExtension", resourceCulture);
             }
         }
     }

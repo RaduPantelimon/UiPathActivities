@@ -12,12 +12,15 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace UiPathTeam.FileConverter.Activities
 {
+
+    [DisplayName("Convert DOCX To DOC")]
     public class ConvertDOCXToDOC : ConversionActivityBaseClass
     {
 
         public ConvertDOCXToDOC()
         {
-            FileExtensionPath = FileTypes.OldWord;
+            FileExtensionPath = "." + FileTypes.OldWord;
+            OldFileExtension = "Word Files|*" + FileTypes.NewWord;
         }
 
         protected override void Execute(CodeActivityContext context)

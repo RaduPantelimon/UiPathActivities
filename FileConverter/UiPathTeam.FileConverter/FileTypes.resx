@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NewExcel" xml:space="preserve">
-    <value>.xlsx</value>
+    <value>xlsx</value>
   </data>
   <data name="NewWord" xml:space="preserve">
-    <value>.docx</value>
+    <value>docx</value>
   </data>
   <data name="OldExcel" xml:space="preserve">
-    <value>.xls</value>
+    <value>xls</value>
   </data>
   <data name="OldWord" xml:space="preserve">
-    <value>.doc</value>
+    <value>doc</value>
   </data>
-  <data name="PFDExtension" xml:space="preserve">
-    <value>.pdf</value>
+  <data name="PDFExtension" xml:space="preserve">
+    <value>pdf</value>
   </data>
 </root>

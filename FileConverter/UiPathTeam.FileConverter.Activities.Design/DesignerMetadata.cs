@@ -15,6 +15,10 @@ namespace UiPathTeam.FileConverter.Activities.Design
             attributeTableBuilder.AddCustomAttributes(typeof(ConvertDOCXToDOC), 
                 new DesignerAttribute(typeof(ConvertFileDesigner)));
 
+            attributeTableBuilder.AddCustomAttributes(typeof(ConvertToPDF),
+                new DesignerAttribute(typeof(ConvertFileDesigner)));
+            attributeTableBuilder.AddCustomAttributes(typeof(ConvertXLSXToXLS),
+                new DesignerAttribute(typeof(ConvertFileDesigner)));
 
             MetadataStore.AddAttributeTable(attributeTableBuilder.CreateTable());
         }

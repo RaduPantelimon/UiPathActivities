@@ -19,48 +19,46 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Office.Interop.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Office.Interop.Word</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Activities.Presentation</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Net.Http</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
-      <AssemblyReference>UiPathTeam.FileConverter.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Activities</AssemblyReference>
-      <AssemblyReference>System.Activities.Presentation</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>UiPathTeam.FileConverter.Activities</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>PresentationCore</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPathTeam.FileConverter.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPathTeam.FileConverter.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.FileConverter</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>UiPathTeam.FileConverter.TestProject</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence>
-    <ufa:ConvertXLSToXLSX ResultingFilePath="{x:Null}" DirectoryToSave="C:\UiPath" FileExtensionPath=".xlsx" sap2010:WorkflowViewState.IdRef="ConvertXLSToXLSX_1" NewFileName="Blabla" OldFilePath="C:\UiPath\BigXlsFile.xls" />
-    <ufa:ConvertDOCToDOCX DirectoryToSave="{x:Null}" NewFileName="{x:Null}" OldFilePath="{x:Null}" ResultingFilePath="{x:Null}" FileExtensionPath=".docx" sap2010:WorkflowViewState.IdRef="ConvertDOCToDOCX_1" />
-    <ufa:ConvertDOCXToDOC DirectoryToSave="{x:Null}" NewFileName="{x:Null}" OldFilePath="{x:Null}" ResultingFilePath="{x:Null}" FileExtensionPath=".doc" sap2010:WorkflowViewState.IdRef="ConvertDOCXToDOC_1" />
-    <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
-    <sads:DebugSymbol.Symbol>d2tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xVaVBhdGhUZWFtLkZpbGVDb252ZXJ0ZXIuVGVzdFByb2plY3RcRmlsZUNvbnZlcnRlclRlc3QueGFtbAcsAzIOAgEBLQUt4QECAQQuBS7SAQIBAy8FL9EBAgECLUgtUwIBBy2vAS23AQIBBi3EAS3eAQIBBQ==</sads:DebugSymbol.Symbol>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <ufa:ConvertXLSToXLSX OldFileExtension="{x:Null}" ResultingFilePath="{x:Null}" DirectoryToSave="C:\UiPath" FileExtensionPath=".xlsx" sap2010:WorkflowViewState.IdRef="ConvertXLSToXLSX_1" NewFileName="Blabla" OldFilePath="C:\UiPath\BigXlsFile.xls" />
+    <sads:DebugSymbol.Symbol>d2tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xVaVBhdGhUZWFtLkZpbGVDb252ZXJ0ZXIuVGVzdFByb2plY3RcRmlsZUNvbnZlcnRlclRlc3QueGFtbAUvAzIOAgEBMAUw/QECAQIwZDBvAgEFMMsBMNMBAgEEMOABMPoBAgED</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="ConvertXLSToXLSX_1" sap:VirtualizedContainerService.HintSize="426.4,96" />
-      <sap2010:ViewStateData Id="ConvertDOCToDOCX_1" sap:VirtualizedContainerService.HintSize="426.4,96" />
-      <sap2010:ViewStateData Id="ConvertDOCXToDOC_1" sap:VirtualizedContainerService.HintSize="426.4,96" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="448.8,492.8">
+      <sap2010:ViewStateData Id="ConvertXLSToXLSX_1" sap:VirtualizedContainerService.HintSize="429.6,96" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="452,220.8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="UiPathTeam.FileConverter.TestProject.FileConverterTest_1" sap:VirtualizedContainerService.HintSize="488.8,572.8" />
+      <sap2010:ViewStateData Id="UiPathTeam.FileConverter.TestProject.FileConverterTest_1" sap:VirtualizedContainerService.HintSize="492,300.8" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

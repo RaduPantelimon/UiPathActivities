@@ -78,7 +78,7 @@
                         Name="NewFileName"
                         Expression="{Binding Path=ModelItem.NewFileName, Mode=TwoWay, Converter={StaticResource ArgumentToExpressionConverter}, ConverterParameter=In }"
                         ExpressionType="s:String"
-                        HintText="XLSX File Name"
+                        HintText="File Name"
                         OwnerActivity="{Binding Path=ModelItem}"
                         Margin="2"
                         Width="150"    
