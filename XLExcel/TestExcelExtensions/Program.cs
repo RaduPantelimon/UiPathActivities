@@ -16,6 +16,7 @@ using DocumentFormat.OpenXml.Spreadsheet;
 
 using UiPathTeam.XLExcel;
 using UiPathTeam.XLExcel.Activities.Design;
+using System.IO;
 
 namespace TestExcelExtensions
 {
@@ -24,10 +25,20 @@ namespace TestExcelExtensions
         static void Main(string[] args)
         {
 
+            ActivityXamlServicesSettings settings = new ActivityXamlServicesSettings
+            {
+                CompileExpressions = true
+            };
 
+            Activity workflow = ActivityXamlServices.Load("C:\\UiPath\\FileConverter\\ExcelActivityTest.xaml", settings);
+            System.Activities.Validation.ValidationResults results = System.Activities.Validation.ActivityValidationServices.Validate(workflow);
+
+
+
+            ValidateWorlflow("C:\\UiPath\\FileConverter\\ExcelActivityTest.xaml");
 
             //TestRowNO();
-            TestWorkflow();
+            //TestWorkflow();
             //TestFileConversion();
             //TestReadRange();
             //TestRange();
@@ -35,7 +46,80 @@ namespace TestExcelExtensions
             //TestReadRangeBasicDOM();
         }
 
-        static void TestFileConversion()
+        private static void ValidateWorlflow(string xamlFile)
+
+        {
+
+            List<string> listError = new List<string>();
+
+            DynamicActivity activity = null;
+
+
+
+            try
+
+            {
+
+                // load the xaml 
+
+                activity = System.Activities.XamlIntegration.ActivityXamlServices.Load(new StringReader(xamlFile)) as DynamicActivity;
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                listError.Add("In the workflow contains following errors and warnings :");
+
+                listError.Add(ex.Message);
+
+               
+
+                // logger.Error("Unable to load workflow", ex);
+
+                // throw new InvalidWorkflowException("Workflow is not valid", ex);
+
+            }
+
+
+
+            // validate the activity through ActivityValidationServices
+
+            System.Activities.Validation.ValidationResults results = System.Activities.Validation.ActivityValidationServices.Validate(activity);
+
+            // checking whether workflow has any errors or not 
+
+            if (results.Errors.Count > 0)
+
+            {
+
+                listError.Add("In the workflow contains following errors and warnings :");
+
+                foreach (System.Activities.Validation.ValidationError error in results.Errors)
+
+                {
+
+                    listError.Add(error.Message);
+
+
+
+                }
+
+                // adding worklfow warnings in the listError 
+
+                foreach (System.Activities.Validation.ValidationError warning in results.Warnings)
+
+                {
+
+                    listError.Add(warning.Message);
+
+                }
+
+            }
+        }
+
+            static void TestFileConversion()
         {
 
             //string newFilePath = Utils.ConvertToXLSX("C:\\UiPath\\P0120180117_034752.xls", "Temp2", "C:\\UiPath");
@@ -103,11 +187,11 @@ namespace TestExcelExtensions
 
         static public void TestWorkflow()
         {
+
             ActivityXamlServicesSettings settings = new ActivityXamlServicesSettings
             {
                 CompileExpressions = true
             };
-
             Activity workflow = ActivityXamlServices.Load("ExcelActivityTest.xaml", settings);
             WorkflowInvoker.Invoke(workflow);
 

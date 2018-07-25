@@ -11,9 +11,9 @@
     <language></language>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <summary>Package designed to create and use highly customizable forms using UiPath Studio.</summary>
-    <releaseNotes> First Published Version of the Package</releaseNotes>
-    <tags>WPF, Forms, Creator, XAML</tags>
+    <summary>Package containing several activities that can be used in file conversion between several formats.</summary>
+    <releaseNotes>First Published Version of the Package</releaseNotes>
+    <tags>File Converter, Com, Interop, Office, Word, Excel</tags>
   </metadata>
 </package>
 

@@ -13,7 +13,7 @@ namespace UiPathTeam.FileConverter.Activities
     public abstract class ConversionActivityBaseClass:CodeActivity
     {
         [Category("Input")]
-        [DisplayName("XLS FilePath")]
+        [DisplayName("File Path")]
         [Description("File Path of the Document to be converted")]
         [RequiredArgument]
         public InArgument<string> OldFilePath { get; set; }

@@ -31,7 +31,7 @@ namespace UiPathTeam.FileConverter.Activities
             string directoryToSave = DirectoryToSave.Get(context);
 
             //convert and set result
-            string resultingFilePath = Utils.ConvertExcel("C:\\UiPath\\ResultXLSX.xlsx", "Blabla", "C:\\UiPath",
+            string resultingFilePath = Utils.ConvertExcel(oldFilePath, newFileName, directoryToSave,
                   FileTypes.OldExcel, Microsoft.Office.Interop.Excel.XlFileFormat.xlExcel8);
             ResultingFilePath.Set(context, resultingFilePath);
         }
