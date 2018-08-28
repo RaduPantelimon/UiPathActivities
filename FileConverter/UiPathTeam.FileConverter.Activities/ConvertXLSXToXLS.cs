@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Threading.Tasks;
-using System.Activities;
-using System.Activities.XamlIntegration;
+﻿using System.Activities;
 using System.ComponentModel;
-
-
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace UiPathTeam.FileConverter.Activities
 {

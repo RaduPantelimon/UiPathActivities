@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UiPathTeam.FileConverter
+﻿namespace UiPathTeam.FileConverter
 {
     public static partial class Utils
     {
 
-        //if the file is inside our current directory, we remove the 
+
+        /// <summary>
+        ///  if the file is inside our current directory, we remove the absolute part of the URL
+        /// </summary> 
         public static string TrimFilePath(string initialPath, string absolutePath)
         {
             if (initialPath.StartsWith(absolutePath))
@@ -20,7 +17,5 @@ namespace UiPathTeam.FileConverter
             return initialPath;
         }
 
-
-      
     }
 }

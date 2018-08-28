@@ -1,22 +1,8 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Activities;
+﻿using System.Activities;
 using System.Activities.Presentation.Model;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using UiPathTeam.FileConverter;
 
 namespace UiPathTeam.FileConverter.Activities.Design
 {
@@ -28,7 +14,9 @@ namespace UiPathTeam.FileConverter.Activities.Design
             InitializeComponent();
         }
 
-
+        /// <summary>
+        ///  Creates a file selection pop-up and allows the user to select the file to convert
+        /// </summary> 
         private void Button_Click_SelectFile(object sender, RoutedEventArgs e)
         {
             //selecting the file to convert
@@ -49,11 +37,13 @@ namespace UiPathTeam.FileConverter.Activities.Design
 
 
 
-       
 
+        /// <summary>
+        /// Creates a folder selection pop-up and allows the user to  select the directory in which to save the converted file
+        /// </summary> 
         private void Button_Click_SelectFolder(object sender, RoutedEventArgs e)
         {
-            //selecting the directory in which to save the converted file
+
             using (var fbd = new FolderBrowserDialog())
             {
                 fbd.SelectedPath = Directory.GetCurrentDirectory();
