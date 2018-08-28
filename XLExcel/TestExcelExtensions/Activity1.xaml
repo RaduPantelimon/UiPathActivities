@@ -41,19 +41,25 @@
       <AssemblyReference>TestExcelExtensions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <uxa:XLExcelApplicationScope FilePath="C:\UiPath\PCPotentialConfig.xlsx" sap2010:WorkflowViewState.IdRef="XLExcelApplicationScope_1">
-    <uxa:XLExcelApplicationScope.Body>
-      <ActivityAction x:TypeArguments="ux:XLExcelContextInfo">
-        <ActivityAction.Argument>
-          <DelegateInArgument x:TypeArguments="ux:XLExcelContextInfo" Name="XLExcelContextInfoInfoTag" />
-        </ActivityAction.Argument>
-        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
-          <uxa:ReadRange Name="{x:Null}" Range="{x:Null}" Result="{x:Null}" Headers="False" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="US" />
-        </Sequence>
-      </ActivityAction>
-    </uxa:XLExcelApplicationScope.Body>
-    <sads:DebugSymbol.Symbol>d1pDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xYTEV4Y2VsXFRlc3RFeGNlbEV4dGVuc2lvbnNcQWN0aXZpdHkxLnhhbWwFLAM4IQIBASwpLEsCAQUyCTQUAgECMwsznAECAQMzlQEzmQECAQQ=</sads:DebugSymbol.Symbol>
-  </uxa:XLExcelApplicationScope>
+  <Sequence>
+    <uxa:XLExcelApplicationScope FilePath="C:\UiPath\PCPotentialConfig.xlsx" sap2010:WorkflowViewState.IdRef="XLExcelApplicationScope_1">
+      <uxa:XLExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ux:XLExcelContextInfo">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ux:XLExcelContextInfo" Name="XLExcelContextInfoInfoTag" />
+          </ActivityAction.Argument>
+          <Sequence>
+            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <uxa:ReadRange Name="{x:Null}" Range="{x:Null}" Result="{x:Null}" Headers="False" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="US" />
+            </Sequence>
+            <sap2010:WorkflowViewState.IdRef>Sequence_2</sap2010:WorkflowViewState.IdRef>
+          </Sequence>
+        </ActivityAction>
+      </uxa:XLExcelApplicationScope.Body>
+    </uxa:XLExcelApplicationScope>
+    <sap2010:WorkflowViewState.IdRef>Sequence_3</sap2010:WorkflowViewState.IdRef>
+    <sads:DebugSymbol.Symbol>d1pDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xYTEV4Y2VsXFRlc3RFeGNlbEV4dGVuc2lvbnNcQWN0aXZpdHkxLnhhbWwHLAM+DgIBAS0FOyMCAQItKy1NAgEHMws4FgIBAzQNNhgCAQQ1DzWgAQIBBTWZATWdAQIBBg==</sads:DebugSymbol.Symbol>
+  </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="ReadRange_1" sap:VirtualizedContainerService.HintSize="247.2,66.4" />
@@ -64,8 +70,22 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="XLExcelApplicationScope_1" sap:VirtualizedContainerService.HintSize="482.4,312.8" />
-      <sap2010:ViewStateData Id="TestExcelExtensions.Activity1_1" sap:VirtualizedContainerService.HintSize="522.4,392.8" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="292,316">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="XLExcelApplicationScope_1" sap:VirtualizedContainerService.HintSize="482.4,437.6" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="504.8,562.4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TestExcelExtensions.Activity1_1" sap:VirtualizedContainerService.HintSize="544.8,642.4" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

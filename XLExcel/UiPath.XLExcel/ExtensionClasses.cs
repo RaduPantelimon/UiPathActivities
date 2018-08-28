@@ -67,24 +67,12 @@ namespace UiPathTeam.XLExcel
 
         public static int GetCellColumn(this Cell Cell)
         {
-            Regex rgx = new Regex("[A-Z]+");
-            MatchCollection colMatches = rgx.Matches(Cell.CellReference);
-            int stCol;
+            int startRow=0, startCol=0;
 
-            //coordinates must begin with a valid [A-Z expression]
-            if (colMatches[0].Index == 0)
-            {
-                //getting col number
-                string colString = colMatches[0].Value;
-                stCol = ExcelRange.ExcelColumnNameToNumber(colString);
-
-                return stCol;
-            }
-            else
-            {
-
-                throw new Exception("The range received is not valid. Failed to parse expression: " + Cell.CellReference);
-            }
+            //get the coordinates from the Cell Reference
+            ExcelRange.ExcelColumnNameToCoordinates(Cell.CellReference, ref startRow, ref startCol);
+            return startCol;
+           
 
         }
 

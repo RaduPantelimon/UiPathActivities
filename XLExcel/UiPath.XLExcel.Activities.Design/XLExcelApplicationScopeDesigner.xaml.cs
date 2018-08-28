@@ -5,6 +5,7 @@ using System.Activities.Presentation;
 using System.Activities.Presentation.Model;
 using System.Activities.Presentation.Services;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -35,15 +36,28 @@ namespace UiPathTeam.XLExcel.Activities.Design
             OpenFileDialog _openFileDialog = new OpenFileDialog();
             _openFileDialog.Title = "Open XLSX File";
             _openFileDialog.Filter = "Excel Files|*.xlsx;*.xlsm";
-            _openFileDialog.InitialDirectory = @"C:\";
+            _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
 
             if (_openFileDialog.ShowDialog() == true)
             {
                 ModelProperty property = this.ModelItem.Properties["FilePath"];
                 //property
-                property.SetValue(new InArgument<string>(_openFileDialog.FileName));
-         
+                property.SetValue(new InArgument<string>(TrimFilePath(_openFileDialog.FileName, Directory.GetCurrentDirectory())));
+
+
             }
         }
+
+        //if the file is inside our current directory, we remove the absolute path
+        public static string TrimFilePath(string initialPath, string absolutePath)
+        {
+            if (initialPath.StartsWith(absolutePath))
+            {
+                return initialPath.Remove(0, absolutePath.Length).TrimStart('\\');
+            }
+
+            return initialPath;
+        }
+
     }
 }

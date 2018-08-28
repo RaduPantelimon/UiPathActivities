@@ -59,9 +59,30 @@ namespace UiPathTeam.XLExcel
             }
         }
 
-        private static void ExcelColumnNameToCoordinates(string CellCoordinates, ref int StartRow, ref int StartColumn)
+        public static void ExcelColumnNameToCoordinates(string CellCoordinates, ref int StartRow, ref int StartColumn)
         {
-            Regex rgx = new Regex("[A-Z]+");
+
+            Regex rgx = new Regex("([A-Z]+)([0-9]+)");
+            MatchCollection colMatches = rgx.Matches(CellCoordinates);
+
+            //coordinates must begin with a valid [A-Z expression] and end with a valid [0-9 expression]
+            if (colMatches[0].Index == 0)
+            {
+                //getting col number
+                string colString = colMatches[0].Groups[1].Value;
+                StartColumn = ExcelColumnNameToNumber(colString);
+
+                //get row number
+                string rowString = colMatches[0].Groups[2].Value;
+                if (rowString.IndexOf("0") == 0) throw new Exception("Row number cannot begin with: " + rowString);
+                StartRow = int.Parse(rowString);
+            }
+            else
+            {
+
+                throw new Exception("The range received is not valid. Failed to parse expression: " + CellCoordinates);
+            }
+           /* Regex rgx = new Regex("[A-Z]+");
             MatchCollection colMatches = rgx.Matches(CellCoordinates);
 
             //coordinates must begin with a valid [A-Z expression]
@@ -80,7 +101,7 @@ namespace UiPathTeam.XLExcel
 
                 throw new Exception("The range received is not valid. Failed to parse expression: " + CellCoordinates);
             }
-            string result = rgx.Replace(CellCoordinates, "", 1);
+            string result = rgx.Replace(CellCoordinates, "", 1);*/
         }
 
         //convert excel column name to number

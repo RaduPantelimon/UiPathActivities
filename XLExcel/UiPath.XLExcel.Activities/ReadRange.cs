@@ -19,7 +19,11 @@ namespace UiPathTeam.XLExcel.Activities
 
     public class ReadRange: ExcelSheetExtensionCodeActivity
     {
+        public ReadRange() {
 
+            SheetName = "Sheet1";
+            Range = "";
+        }
 
         [Category("Input")]
         [RequiredArgument]

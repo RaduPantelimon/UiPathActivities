@@ -25,7 +25,7 @@ namespace TestExcelExtensions
         static void Main(string[] args)
         {
 
-            ActivityXamlServicesSettings settings = new ActivityXamlServicesSettings
+           /* ActivityXamlServicesSettings settings = new ActivityXamlServicesSettings
             {
                 CompileExpressions = true
             };
@@ -35,10 +35,10 @@ namespace TestExcelExtensions
 
 
 
-            ValidateWorlflow("C:\\UiPath\\FileConverter\\ExcelActivityTest.xaml");
+            ValidateWorlflow("C:\\UiPath\\FileConverter\\ExcelActivityTest.xaml");*/
 
             //TestRowNO();
-            //TestWorkflow();
+            TestWorkflow();
             //TestFileConversion();
             //TestReadRange();
             //TestRange();
