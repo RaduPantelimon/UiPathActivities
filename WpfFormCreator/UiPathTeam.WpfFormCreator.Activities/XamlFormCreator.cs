@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Activities;
 using System.ComponentModel;
-using System.Data;
 using System.Activities.Validation;
-using System.IO;
 
 namespace UiPathTeam.WpfFormCreator.Activities
 {
@@ -52,6 +46,10 @@ namespace UiPathTeam.WpfFormCreator.Activities
         [Description("Array with the names of the controls for which, at submit, we should retrieve the all the non-null properties")]
         public InArgument<string[]> ElementsToRetrieve { get; set; }
 
+        [Category("Input")]
+        [DisplayName("Always Top")]
+        [Description("If this is checked, the form will always appear in the foreground until it is submitted")]
+        public bool AlwaysTop { get; set; }
 
         [Category("Output")]
         [Description("The values returned when the form is submitted")]
@@ -97,17 +95,19 @@ namespace UiPathTeam.WpfFormCreator.Activities
 
 
             //launch form and get result data
-            Dictionary<string, Dictionary<string, object>> Results = FormsCreator.LaunchForm(
+            Dictionary<string, Dictionary<string, object>> results = FormsCreator.LaunchForm(
                formXAMLPath,
                styleSheetPath,
                submitElementName, 
                submitEventName,
                input,
+               AlwaysTop,
                GetAllProperties,
-               elementsToRetrieve);
+               elementsToRetrieve
+               );
 
             //set output value
-            OutputDictionary.Set(context,Results);
+            OutputDictionary.Set(context,results);
         }
     }
 }

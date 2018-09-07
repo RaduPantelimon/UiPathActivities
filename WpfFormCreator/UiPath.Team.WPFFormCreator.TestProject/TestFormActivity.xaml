@@ -58,7 +58,7 @@
     <If Condition="False" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
-          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_2.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_2" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" AlwaysTop="True" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_2.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_2" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
             <uwa:XamlFormCreator.InputDictionary>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
                 <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
@@ -76,7 +76,7 @@
               </OutArgument>
             </uwa:XamlFormCreator.OutputDictionary>
           </uwa:XamlFormCreator>
-          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_3.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_1" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" AlwaysTop="False" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_3.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_1" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
             <uwa:XamlFormCreator.InputDictionary>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
                 <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
@@ -93,7 +93,7 @@
               </OutArgument>
             </uwa:XamlFormCreator.OutputDictionary>
           </uwa:XamlFormCreator>
-          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_4.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_4" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+          <uwa:XamlFormCreator ElementsToRetrieve="{x:Null}" AlwaysTop="False" FormXAMLPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\ParentForm_4.xaml" GetAllProperties="False" sap2010:WorkflowViewState.IdRef="XamlFormCreator_4" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
             <uwa:XamlFormCreator.InputDictionary>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))">
                 <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:Object))" xml:space="preserve">new Dictionary&lt;string, Dictionary&lt;string, object&gt;&gt; {
@@ -117,7 +117,7 @@
               </OutArgument>
             </uwa:XamlFormCreator.OutputDictionary>
           </uwa:XamlFormCreator>
-          <uwa:XamlFormCreator GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_3" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
+          <uwa:XamlFormCreator AlwaysTop="False" GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_3" StyleSheetPath="C:\UiPath\CustomActivities\Community.Activities\WpfFormCreator\UiPath.Team.WPFFormCreator.TestProject\TestFiles\DemoDictionary.xaml" SubmitElementName="buttonClickClick" SubmitEventName="Click">
             <uwa:XamlFormCreator.ElementsToRetrieve>
               <InArgument x:TypeArguments="s:String[]">
                 <mca:CSharpValue x:TypeArguments="s:String[]">new string[]{ "openOffice"}</mca:CSharpValue>
@@ -154,7 +154,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <uwa:XamlFormCreator InputDictionary="{x:Null}" StyleSheetPath="{x:Null}" GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_5" SubmitElementName="submitButton" SubmitEventName="Click">
+    <uwa:XamlFormCreator InputDictionary="{x:Null}" StyleSheetPath="{x:Null}" AlwaysTop="True" GetAllProperties="True" sap2010:WorkflowViewState.IdRef="XamlFormCreator_5" SubmitElementName="submitButton" SubmitEventName="Click">
       <uwa:XamlFormCreator.ElementsToRetrieve>
         <InArgument x:TypeArguments="s:String[]">
           <mca:CSharpValue x:TypeArguments="s:String[]">new string[]{ "openOffice"}</mca:CSharpValue>
@@ -207,7 +207,7 @@
         </Sequence>
       </ActivityAction>
     </ForEach>
-    <sads:DebugSymbol.Symbol>d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwwNgPTAQ4CAQE6BZwBCgIBHJ0BBa0BGwIBE64BBdEBDwIBAjoTOhoCAR08CZoBFAIBHp0BrQGdAbsBAgEbpQELpQFnAgEZoAELoAFmAgEXnQHMAZ0B0wECARaqAQuqAYsBAgEUsQELsQGWAQIBEbgBCc8BFAIBAz0LTiECAT1PC18hAgE0YAt3IQIBK3gLmQEhAgEfuQELvQEXAgENvgELzgEVAgEEPcMDPdUDAgFFPUs9zgECAURAEUYgAgFCPeYDPe0DAgFBSxFLkQECAT89qwI9sAMCAT5PwwNP1QMCATxPS0/OAQIBO1IRVyACATlP5gNP7QMCAThcEVyRAQIBNk+rAk+wAwIBNWDDA2DVAwIBM2BLYM4BAgEyYxFvIAIBMGDmA2DtAwIBL3QRdJEBAgEtYKsCYLADAgEseJMCeKUCAgEqgAERgAFtAgEoexF7bAIBJoUBEZEBIAIBJHi2Ani9AgIBI5YBEZYBkQECASF4e3iAAgIBILsBD7sBZAIBDsEBEcEBhgECAQrIAQ/MARsCAQXKARPKAYABAgEG</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d3tDOlxVaVBhdGhcQ3VzdG9tQWN0aXZpdGllc1xDb21tdW5pdHkuQWN0aXZpdGllc1xXcGZGb3JtQ3JlYXRvclxVaVBhdGguVGVhbS5XUEZGb3JtQ3JlYXRvci5UZXN0UHJvamVjdFxUZXN0Rm9ybUFjdGl2aXR5LnhhbWwwNgPTAQ4CAQE6BZwBCgIBHJ0BBa0BGwIBE64BBdEBDwIBAjoTOhoCAR08CZoBFAIBHp0BvgGdAcwBAgEbpQELpQFnAgEZoAELoAFmAgEXnQHdAZ0B5AECARaqAQuqAYsBAgEUsQELsQGWAQIBEbgBCc8BFAIBAz0LTiECAT1PC18hAgE0YAt3IQIBK3gLmQEhAgEfuQELvQEXAgENvgELzgEVAgEEPdQDPeYDAgFFPVw93wECAURAEUYgAgFCPfcDPf4DAgFBSxFLkQECAT89vAI9wQMCAT5P1QNP5wMCATxPXU/gAQIBO1IRVyACATlP+ANP/wMCAThcEVyRAQIBNk+9Ak/CAwIBNWDVA2DnAwIBM2BdYOABAgEyYxFvIAIBMGD4A2D/AwIBL3QRdJEBAgEtYL0CYMIDAgEseKUCeLcCAgEqgAERgAFtAgEoexF7bAIBJoUBEZEBIAIBJHjIAnjPAgIBI5YBEZYBkQECASF4jQF4kgICASC7AQ+7AWQCAQ7BARHBAYYBAgEKyAEPzAEbAgEFygETygGAAQIBBg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

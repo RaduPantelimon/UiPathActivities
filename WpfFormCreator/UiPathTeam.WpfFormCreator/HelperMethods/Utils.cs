@@ -9,6 +9,7 @@ namespace UiPathTeam.WpfFormCreator
 {
     public static class Utils
     {
+
         public static  Stream GenerateStreamFromString(string s)
         {
             var stream = new MemoryStream();
@@ -20,7 +21,7 @@ namespace UiPathTeam.WpfFormCreator
         }
 
 
-        //if the file is inside our current directory, we remove the 
+        //if the file is inside our current directory, we remove the absolute part of the path
         public static string TrimFilePath(string initialPath, string absolutePath)
         {
             if(initialPath.StartsWith(absolutePath))

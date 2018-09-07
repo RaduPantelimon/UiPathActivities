@@ -1,26 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using Newtonsoft.Json;
-using System.Xml.Linq;
-using System.Xml;
-using System.IO;
-
-using Xceed.Wpf.Toolkit;
 
 using UiPathTeam.WpfFormCreator.HelperMethods;
-using System.Windows.Markup;
 using System.Reflection;
 
 namespace UiPathTeam.WpfFormCreator
@@ -37,6 +21,7 @@ namespace UiPathTeam.WpfFormCreator
         public Dictionary<string, Dictionary<string, object>> Inputs;
         public Dictionary<string, Dictionary<string, object>> Results;
         public bool SaveEverything;
+        public bool AlwaysTop;
         public string[] ControlsToSave;
 
 
@@ -76,12 +61,17 @@ namespace UiPathTeam.WpfFormCreator
         public CustomFormWindow(ExecutionContext executionContext)
         {
             InitializeComponent();
+
+            //bring the window to the foreground and activate it
             this.Activate();
+            this.Focus();
+
+
             //load additional resources provided by the user
             if (executionContext.MainDictionary != null) this.Resources.MergedDictionaries.Add(executionContext.MainDictionary);
 
             //initialize the initial input dictionary
-            Inputs = executionContext.input;
+            Inputs = executionContext.Input;
 
             //add the main form body
             StackPanel.Children.Add(executionContext.MainElement);
@@ -90,13 +80,17 @@ namespace UiPathTeam.WpfFormCreator
             if (Inputs!= null) SetInitializationValues(Inputs);
 
             //set submit click on the specified event of the specified item
-            SetEvent(executionContext.submitElementName, executionContext.submitEventName, CloseAndSaveResults);
+            SetEvent(executionContext.SubmitElementName, executionContext.SubmitEventName, CloseAndSaveResults);
 
-            SaveEverything = executionContext.getAllProperties;
-            ControlsToSave = executionContext.elementsToRetrieve;
+            SaveEverything = executionContext.GetAllProperties;
+            ControlsToSave = executionContext.ElementsToRetrieve;
+            AlwaysTop = executionContext.TopMost;
+
+
+
         }
 
-        private void SetEvent(string ElementName, string Event, RoutedEventHandler CloseAndSaveResults)
+        private void SetEvent(string ElementName, string Event, RoutedEventHandler closeAndSaveResults)
         {
             //set the click event
             string assemblyfullName = typeof(Button).Assembly.FullName;
@@ -117,11 +111,17 @@ namespace UiPathTeam.WpfFormCreator
                 MethodInfo addHandler = evClick.GetAddMethod();
 
                 //invoke AddMethod with the delegate we received as paramenter
-                Object[] addHandlerArgs = { CloseAndSaveResults };
+                Object[] addHandlerArgs = { closeAndSaveResults };
                 addHandler.Invoke(result, addHandlerArgs);
             }
         }
 
+
+
+        /// <summary>
+        /// Initializez the default values of all the WPF controls in the form
+        /// </summary>
+        /// <param name="initializationValues"></param>
         private void SetInitializationValues(Dictionary<string, Dictionary<string, object>> initializationValues)
         {
             //loop through the Elements in the dictionary
@@ -141,6 +141,13 @@ namespace UiPathTeam.WpfFormCreator
             }
         }
 
+
+
+        /// <summary>
+        /// this is the event that is triggered at submit, it will collect all the input data and close the current form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseAndSaveResults(object sender, RoutedEventArgs e)
         {
             
@@ -175,45 +182,20 @@ namespace UiPathTeam.WpfFormCreator
         private void Window_Initialized(object sender, EventArgs e)
         {
             this.Focus();
+            
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                //bring the window to the foreground and activate it
+                this.Activate();
+                this.Focus();
 
+                if (AlwaysTop)
+                {
+                    //force the window to be always on top
+                    this.Topmost = true;
+                }
+            }));
         }
     }
 }
 
-
- 
-
-
-/*
-        private void SetEvent(string ElementName, string Event, RoutedEventHandler CloseAndSaveResults)
-        {
-            //set the click event
-            string assemblyfullName = typeof(Button).Assembly.FullName;
-            //Type type = Type.GetType("System.Windows.Controls." + ElemType + ", " + assemblyfullName);
-
-            MethodInfo method = typeof(FormsCreator).GetMethod("FindChild");
-            //MethodInfo generic = method.MakeGenericMethod(type);
-            //dynamic result = generic.Invoke(this, new object[] { StackPanel, ElementName });
-            dynamic result = method.Invoke(this, new object[] { StackPanel, ElementName });
-
-            Type type = result.GetType();
-
-            //set event
-            if (result != null)
-            {
-
-                EventInfo evClick = type.GetEvent(Event);
-                Type tDelegate = evClick.EventHandlerType;
-
-                MethodInfo miHandler = typeof(CustomFormWindow).GetMethod("CloseAndSaveResults",BindingFlags.NonPublic | BindingFlags.Instance);
-                //Delegate d = Delegate.CreateDelegate(tDelegate, this, miHandler);
-
-
-                MethodInfo addHandler = evClick.GetAddMethod();
-                //Object[] addHandlerArgs = { d };
-                Object[] addHandlerArgs = { CloseAndSaveResults };
-                addHandler.Invoke(result, addHandlerArgs);
-
-            }
-        }
-*/

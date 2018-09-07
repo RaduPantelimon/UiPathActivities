@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Threading;
 using System.Windows.Forms;
@@ -32,8 +30,8 @@ namespace UiPath.Team.WPFFormCreator.TestProject
         [STAThread]
         static void Main()
         {
-            LogicTest();
-            //TestWorkflow();
+            //LogicTest();
+            TestWorkflow();
 
 
         }
@@ -214,14 +212,3 @@ namespace UiPath.Team.WPFFormCreator.TestProject
         }
     }
 }
-
-
-/*
-
-XmlDocument doc = new XmlDocument();
-doc.LoadXml("<Button Name=\"testButton\" Width=\"100\" Height=\"30\" xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\">Button</Button>");
-
-string jsonText = JsonConvert.SerializeXmlNode(doc);
-Console.WriteLine(jsonText); 
-     
-*/

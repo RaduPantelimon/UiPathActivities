@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <summary>Package designed to create and use highly customizable forms using UiPath Studio.</summary>
-    <releaseNotes> First Published Version of the Package</releaseNotes>
+    <releaseNotes>Form is now focused when it is started. Added "Always Top" feature for a form</releaseNotes>
     <tags>WPF, Forms, Creator, XAML</tags>
   </metadata>
 </package>

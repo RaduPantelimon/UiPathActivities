@@ -1,21 +1,8 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Activities;
 using System.Activities.Presentation.Model;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using UiPathTeam.WpfFormCreator;
 
 namespace UiPathTeam.WpfFormCreator.Activities.Design
 {
@@ -34,7 +21,6 @@ namespace UiPathTeam.WpfFormCreator.Activities.Design
             _openFileDialog.Title = "Open Xaml File";
              _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             _openFileDialog.Filter = "Excel Files|*.xml;*.xaml";
-            //_openFileDialog.InitialDirectory = @"C:\";
 
 
             if (_openFileDialog.ShowDialog() == true)
@@ -52,7 +38,6 @@ namespace UiPathTeam.WpfFormCreator.Activities.Design
             _openFileDialog.Title = "Open Xaml File";
             _openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             _openFileDialog.Filter = "Excel Files|*.xml;*.xaml";
-            //_openFileDialog.InitialDirectory = @"C:\";
 
             if (_openFileDialog.ShowDialog() == true)
             {

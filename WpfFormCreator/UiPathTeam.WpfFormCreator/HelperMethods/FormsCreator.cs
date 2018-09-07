@@ -1,20 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using Newtonsoft.Json;
 using System.Xml.Linq;
-using System.Xml;
 using System.IO;
 using Xceed.Wpf.Toolkit;
 
@@ -27,39 +17,45 @@ namespace UiPathTeam.WpfFormCreator
     public static partial class FormsCreator
     {
 
+
+
+        /// <summary>
+        /// Launches the form and returns the output values after the form has been closed
+        /// </summary>
         public static Dictionary<string, Dictionary<string, object>> LaunchForm(
             string contentPath,
             string stylePath,
             string submitElementName,
             string submitEventName,
             Dictionary<string, Dictionary<string, object>> input,
-            bool getAllElements = false, 
-            string[] elementsToRetrieve = null
-            )
+            bool alwaysTop,
+            bool getAllElements = false,
+            string[] elementsToRetrieve = null)
         {
 
-
+            //instaintiate execution context
             ExecutionContext executionContext = new ExecutionContext(contentPath,
                                  stylePath,
                                  submitElementName,
                                  submitEventName,
                                  elementsToRetrieve,
                                  input,
-                                 getAllElements);
+                                 getAllElements,
+                                 alwaysTop);
 
+            //show window
             CustomFormWindow customWindow = new CustomFormWindow(executionContext);
-            //customWindow.Activate();
             customWindow.ShowDialog();
 
-            //Application app = new Application();
-            //app.Run(customWindow);
-
+            //get results
             Dictionary<string, Dictionary<string, object>> Results = customWindow.Results;
 
             return Results;
         }
 
-
+        /// <summary>
+        /// Loads up a resource dictionary
+        /// </summary>
         public static ResourceDictionary  GetResourceDictionaryFromFile(string filePath)
         {
             try
@@ -81,6 +77,10 @@ namespace UiPathTeam.WpfFormCreator
             }
         }
 
+
+        /// <summary>
+        /// Gets the a grid element from a xaml file, this will be the grid where we will store everything
+        /// </summary>
         public static Grid GetGridFromFile(string filePath)
         {
             try
@@ -110,6 +110,10 @@ namespace UiPathTeam.WpfFormCreator
             
         }
 
+
+        /// <summary>
+        /// finds the child element with a specific name inside the current WPF element
+        /// </summary>
         public static FrameworkElement FindChild(DependencyObject parent, string childName)
         {
             // Confirm parent and childName are valid.   
@@ -154,7 +158,10 @@ namespace UiPathTeam.WpfFormCreator
         }
 
 
-        public static List<FrameworkElement> FindChildren(DependencyObject parent, string[] childrenNames/*, bool saveEverything = false*/)
+        /// <summary>
+        /// finds the children elements with specific names inside the current WPF element
+        /// </summary>
+        public static List<FrameworkElement> FindChildren(DependencyObject parent, string[] childrenNames)
         {
             // Confirm parent and childName are valid.   
             if (parent == null) return null;
@@ -171,8 +178,7 @@ namespace UiPathTeam.WpfFormCreator
                 // If the child's name is set for search  
 
                 //save all elements that have a pre-specified name
-                if (childAsControl != null && frameworkElement != null && (childrenNames.Contains(frameworkElement.Name)) // ||
-                  /* (saveEverything && !String.IsNullOrEmpty(frameworkElement.Name.Trim())) )*/)
+                if (childAsControl != null && frameworkElement != null && (childrenNames.Contains(frameworkElement.Name)) )
                 {
                     // if the child's name is of the request name  
                     foundChildren.Add(childAsControl);
@@ -185,32 +191,37 @@ namespace UiPathTeam.WpfFormCreator
             return foundChildren;
         }
 
-        public static void SetValueForProperty(FrameworkElement WPFFrameworkElement, string propertyName, object propertyValue)
+
+
+        /// <summary>
+        /// sets a value for a named property of a WPF element
+        /// </summary>
+        public static void SetValueForProperty(FrameworkElement wpfFrameworkElement, string propertyName, object propertyValue)
         {
             //get property name
-            PropertyInfo propertyInfo = WPFFrameworkElement.GetType().GetProperty(propertyName);
+            PropertyInfo propertyInfo = wpfFrameworkElement.GetType().GetProperty(propertyName);
             //set value
             try
             {
-                propertyInfo.SetValue(WPFFrameworkElement, propertyValue /*ChangeType(propertyValue, propertyInfo.PropertyType)*/, null);
+                propertyInfo.SetValue(wpfFrameworkElement, propertyValue, null);
             }
             catch(Exception ex)
             {
-                throw new Exception(String.Format(WpfFormCreatorResources.ErrorMessage_ValueTypeInvalid, WPFFrameworkElement.Name, propertyName,
+                throw new Exception(String.Format(WpfFormCreatorResources.ErrorMessage_ValueTypeInvalid, wpfFrameworkElement.Name, propertyName,
                    ex.ToString()));
             }
            
         }
 
-        public static object GetValueForProperty(FrameworkElement WPFControl, string propertyName)
+        public static object GetValueForProperty(FrameworkElement wpfControl, string propertyName)
         {
-            return WPFControl.GetType().GetProperty(propertyName).GetValue(WPFControl, null);
+            return wpfControl.GetType().GetProperty(propertyName).GetValue(wpfControl, null);
         }
 
 
         public static Dictionary<string, Dictionary<string, object>> GetDataFromWPFWindow(
             FrameworkElement[] controlsToParseForOutput, 
-            bool GetAllData = false,
+            bool getAllData = false,
             Dictionary<string, Dictionary<string, object>> Inputs = null)
         {
             Dictionary<string, Dictionary<string, object>> Results = new Dictionary<string, Dictionary<string, object>>();
@@ -218,7 +229,7 @@ namespace UiPathTeam.WpfFormCreator
             //loop through the Elements in the dictionary
             foreach (FrameworkElement currentFrameworkElement in controlsToParseForOutput)
             {
-                if(!GetAllData)
+                if(!getAllData)
                 {
                     //get the properties mapped in the Input Dictionary for the current Control 
                     KeyValuePair<string, Dictionary<string, object>> elementValuesPair = Inputs.Where(x => x.Key == currentFrameworkElement.Name).FirstOrDefault();
@@ -238,6 +249,10 @@ namespace UiPathTeam.WpfFormCreator
             return Results;
         }
 
+
+        /// <summary>
+        /// gets all the properties of a WPF control
+        /// </summary>
         public static Dictionary<string, object> GetAllPropertiesFromControl(FrameworkElement currentFrameWorkElement)
         {
             Dictionary<string, object> resultsForControl = new Dictionary<string, object>();
@@ -256,7 +271,11 @@ namespace UiPathTeam.WpfFormCreator
             return resultsForControl;
         }
 
-       public static Dictionary<string,object> GetPropertiesFromControl(FrameworkElement currentFrameworkElement, Dictionary<string,object> propertiesToGet)
+
+        /// <summary>
+        /// gets a named property of a WPF control
+        /// </summary>
+        public static Dictionary<string,object> GetPropertiesFromControl(FrameworkElement currentFrameworkElement, Dictionary<string,object> propertiesToGet)
        {
             //loop through all properties in the input dictionary and create an output dictionary
             Dictionary<string, object> resultsForControl = new Dictionary<string, object>();
@@ -271,6 +290,10 @@ namespace UiPathTeam.WpfFormCreator
             return resultsForControl;
        }
 
+
+        /// <summary>
+        /// changes a nullable object to a non-nullable type
+        /// </summary>
         public static object ChangeType(object value, Type conversion)
         {
             var t = conversion;
@@ -288,43 +311,5 @@ namespace UiPathTeam.WpfFormCreator
             return Convert.ChangeType(value, t);
         }
 
-
-
     }
 }
-
-
-/*
-   public static Grid GetGridFromFile(string filePath)
-        {
-            //load file
-            XDocument mainComponent = XDocument.Load(filePath);
-
-            XNamespace aw = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
-            XElement mainAppElem = new XElement(aw + "Grid", 
-                new XAttribute("xmlns", "http://schemas.microsoft.com/winfx/2006/xaml/presentation"),
-                new XAttribute(XNamespace.Xmlns + "x", "http://schemas.microsoft.com/winfx/2006/xaml"),
-                new XAttribute(XNamespace.Xmlns + "d", "http://schemas.microsoft.com/expression/blend/2008"),
-                new XAttribute(XNamespace.Xmlns + "mc", "http://schemas.openxmlformats.org/markup-compatibility/2006"),
-                XElement.Parse(mainComponent.FirstNode.ToString()));
-
-
-            //converting the node to string so we convert it to wpf elem
-            Stream s = Utils.GenerateStreamFromString(mainAppElem.ToString());
-
-            ParserContext context = new ParserContext();
-            context.XmlnsDictionary.Add("", "http://schemas.microsoft.com/winfx/2006/xaml/presentation");
-            context.XmlnsDictionary.Add("x", "http://schemas.microsoft.com/winfx/2006/xaml");
-            context.XmlnsDictionary.Add("d", "http://schemas.microsoft.com/expression/blend/2008");
-            context.XmlnsDictionary.Add("mc", "http://schemas.openxmlformats.org/markup-compatibility/2006");
-
-
-            // Load WPF Grid with XamlReader
-            System.Windows.Controls.Grid mainGrid = null;
-            mainGrid = (System.Windows.Controls.Grid)XamlReader.Load(s, context);
-
-            return mainGrid;
-        }
-     
-     
-     */
